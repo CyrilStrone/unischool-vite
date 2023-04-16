@@ -5,7 +5,9 @@
   background: #ffffff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
   border-radius: 46px;
-  width: min-content;
+  overflow: hidden;
+  height: 320px;
+  width: 450px;
 }
 .BlogListItem__First {
   flex-direction: row;
@@ -13,9 +15,12 @@
 }
 .BlogListItem__First > .BlogListItem__Info {
   padding-top: 31px;
+  width: 550px;
+  height: 100%;
 }
 .BlogListItem__First .BlogListItem__Info__description {
   margin-top: 16px;
+  max-height: none;
 }
 .BlogListItem__First .BlogListItem__Info__id {
   margin-top: auto;
@@ -44,36 +49,41 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 150px;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
+  width: -webkit-fill-available;
 }
 .BlogListItem__Info__title {
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 46px;
-  description-align: center;
   color: #000000;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .BlogListItem__Info__description {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
-  /* or 150% */
-
+  word-wrap: break-word;
   color: #000000;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  height: -webkit-fill-available;
+  max-height: 34px;
 }
 .BlogListItem__Info__id {
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 20px;
-  /* identical to box height, or 83% */
   cursor: pointer;
-  margin-top: 35px;
+  margin-top: auto;
   color: #4a3aff;
   text-decoration: none;
 }

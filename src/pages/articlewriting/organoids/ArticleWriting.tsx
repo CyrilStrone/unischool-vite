@@ -82,7 +82,7 @@ export const ArticleWriting = () => {
                 <div className="ArticleWriting__SubTitle">
                     Заголовок статьи
                 </div>
-                <input type="text" onChange={(event: any) => {
+                <input type="text" maxLength={40} onChange={(event: any) => {
                     setValue((prevState: any) => ({
                         ...prevState,
                         title: event.target.value
@@ -93,7 +93,7 @@ export const ArticleWriting = () => {
                 <div className="ArticleWriting__SubTitle">
                     Описание статьи
                 </div>
-                <input type="text" onChange={(event: any) => {
+                <input type="text" maxLength={40} onChange={(event: any) => {
                     setValue((prevState: any) => ({
                         ...prevState,
                         description: event.target.value
@@ -107,7 +107,7 @@ export const ArticleWriting = () => {
                             <div className="ArticleWriting__SubTitle">
                                 Подзаголовок статьи
                             </div>
-                            <input type="text" onChange={(event: any) => { updateContent(index, "title", event.target.value); }} value={e.title} className="ArticleWriting__SubTitleBlock__Input ArticleWriting__Input" />
+                            <input type="text" maxLength={40} onChange={(event: any) => { updateContent(index, "title", event.target.value); }} value={e.title} className="ArticleWriting__SubTitleBlock__Input ArticleWriting__Input" />
                         </div>
                         <div className="ArticleWriting__AfterSubtitleBlock ArticleWriting__Block">
                             <div className="ArticleWriting__SubTitle">
