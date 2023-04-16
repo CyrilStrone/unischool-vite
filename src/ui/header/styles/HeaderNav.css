@@ -1,0 +1,43 @@
+.HeaderNav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 85px;
+}
+.HeaderNav a {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  text-decoration: none;
+  color: #ffffff;
+}
+.HeaderNav__Search__Input {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #6f6c90;
+  padding: 15px 15px 15px 70px;
+  outline: none;
+  background: #ffffff;
+  border: 1px solid #eff0f7;
+  box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+  border-radius: 46px;
+  box-sizing: border-box;
+}
+.HeaderNav__Search {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+}
+.HeaderNav__Search img {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 24px;
+}

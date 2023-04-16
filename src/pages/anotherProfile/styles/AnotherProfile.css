@@ -1,0 +1,9 @@
+.AnotherProfile{
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 118px;
+    z-index: 1;
+}

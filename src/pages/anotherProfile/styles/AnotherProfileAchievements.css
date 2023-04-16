@@ -1,0 +1,26 @@
+.AnotherProfileAchievements {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 58px;
+  padding-bottom: 120px;
+  border-top: 2px solid #6f6c90;
+  gap: 48px;
+}
+.AnotherProfileAchievements__Title {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  color: #000000;
+}
+.AnotherProfileAchievements__Item {
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+  border-radius: 46px;
+  width: 700px;
+  height: 146px;
+}

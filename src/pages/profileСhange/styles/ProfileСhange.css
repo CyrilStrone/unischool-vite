@@ -1,0 +1,110 @@
+.ProfileСhange {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin-top: 118px;
+  gap: 39px;
+  font-family: "DM Sans", sans-serif;
+  z-index: 1;
+}
+.ProfileСhange__Title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: #000000;
+}
+.ProfileСhange__image {
+  display: flex;
+  gap: 33px;
+}
+.ProfileСhange__image__image {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  object-fit: cover;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.ProfileСhange__image input[type="file"] {
+  display: none;
+}
+.ProfileСhange__image__Button {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 46px;
+  text-align: center;
+  cursor: pointer;
+  color: #000000;
+  margin-top: 10px;
+}
+.ProfileСhange__name {
+  width: 100%;
+  display: flex;
+  gap: 17px;
+  flex-direction: column;
+}
+.ProfileСhange__name__Title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 46px;
+  color: #000000;
+}
+.ProfileСhange__about__Title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 46px;
+  color: #000000;
+}
+.ProfileСhange__about {
+  width: 100%;
+  display: flex;
+  gap: 17px;
+  flex-direction: column;
+}
+.ProfileСhange__password {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 46px;
+  text-decoration: none;
+  color: #4a3aff;
+}
+.ProfileСhange__Input {
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+  border-radius: 46px;
+  outline: none;
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 36px;
+  color: #000000;
+  padding: 7px 7px 7px 38px;
+}
+.ProfileСhange__Buttons {
+  display: flex;
+  gap: 16px;
+}
+.ProfileСhange__Buttons__Item {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 46px;
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+}
+.ProfileСhange__Buttons__Item:hover {
+  color: #4a3aff;
+}

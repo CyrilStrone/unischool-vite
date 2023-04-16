@@ -1,0 +1,25 @@
+.HeaderUser {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+.HeaderUser__Button {
+  text-decoration: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 16px 42px 16px 42px;
+}
+.HeaderUser__Icon img {
+  height: 52px;
+  width: 52px;
+  border-radius: 50px;
+  object-fit: cover;
+}
