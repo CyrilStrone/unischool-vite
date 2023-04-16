@@ -9,9 +9,9 @@ export interface IInRegistration {
     lastName: string
     login: string
     role: string
+    navigate:any
 }
 export const InRegistration = async (params: IInRegistration) => {
-    const navigate = useNavigate();
     return axiosInstance.post(
         'auth/registration', {
         "email": params.email,
@@ -21,7 +21,7 @@ export const InRegistration = async (params: IInRegistration) => {
         "login": params.login,
         "role": params.role
     })
-        .then((res: any) => { setAccessToken(res.data.token); navigate("/Profile") })
+        .then((res: any) => { setAccessToken(res.data.token); params.navigate("/Profile") })
         .catch(() => {
             setAccessToken("")
         })

@@ -7,7 +7,9 @@ import { useStore } from "effector-react";
 import { $userAuthorization } from "../../../common/UserHooks";
 import { accessTokenName } from "../../../common/axiosInstance";
 export const Registration = () => {
-    const [value, setValue] = useState<IInRegistration>({ email: "", password: "", firstName: "", lastName: "", login: "", role: "USER" })
+    const navigate = useNavigate();
+
+    const [value, setValue] = useState<IInRegistration>({ email: "", password: "", firstName: "", lastName: "", login: "", role: "USER",navigate:navigate })
     const requestRegistration = async () => {
         await InRegistration(value);
     }
@@ -17,7 +19,6 @@ export const Registration = () => {
         } else {
         }
     };
-    const navigate = useNavigate();
     const userAuthorization = useStore($userAuthorization);
     useEffect(() => {
         if (localStorage.getItem(accessTokenName)?.length) {
