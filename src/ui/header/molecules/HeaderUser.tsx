@@ -1,26 +1,26 @@
 import { NavLink } from "react-router-dom";
-import { $userAuthorization } from "../../../common/UserHooks";
 import { useStore } from "effector-react";
 import UserIcon from '../../../common/assets/header/user.svg'
 import "../styles/HeaderUser.css"
 import { useEffect, useState } from "react";
 import { InHeaderUser } from "../logics/InHeaderUser";
 import { apiImage } from "../../../common/axiosInstance";
+import { $accessToken } from "../../../common/accessToken";
 export const HeaderUser = () => {
-    const userAuthorization = useStore($userAuthorization);
+    const accessToken = useStore($accessToken);
     const [avatar, setAvatar] = useState<string>()
     const requestInHeaderUser = async () => {
         setAvatar(await InHeaderUser())
     }
     useEffect(() => {
-        if (userAuthorization) {
+        if (accessToken) {
             requestInHeaderUser()
         }
-    }, [userAuthorization])
+    }, [accessToken])
 
     return (
         <div className="HeaderUser">
-            {userAuthorization ?
+            {accessToken ?
                 <>
                     <NavLink className="HeaderUser__Button" to="/ArticleWriting">Написать статью</NavLink>
                     <NavLink className="HeaderUser__Icon" to="/Profile">

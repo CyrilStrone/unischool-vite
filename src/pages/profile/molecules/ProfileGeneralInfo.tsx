@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { UserLogout } from "../../../common/accessToken";
 import "../styles/ProfileGeneralInfo.css"
 interface IProfileGeneralInfo {
     image: string,
@@ -12,11 +13,11 @@ interface IProfileGeneralInfo {
 export const ProfileGeneralInfo = (params: IProfileGeneralInfo) => {
     let date = new Date(params.dateOfRegistration);
     let formattedDate = date.toLocaleDateString('en-US', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
     });
-    
+
     return (
         <div className="ProfileGeneralInfo">
             <img className="ProfileGeneralInfo__Image" src={params.image} alt="" />
@@ -34,9 +35,14 @@ export const ProfileGeneralInfo = (params: IProfileGeneralInfo) => {
                     {params.about}
                 </div>
             </div>
-            <NavLink to={"/ProfileСhange"} className="ProfileGeneralInfo__Button">
-                Редактировать профиль
-            </NavLink>
+            <div className="ProfileGeneralInfo__Buttons">
+                <NavLink to={"/ProfileСhange"} className="ProfileGeneralInfo__Button">
+                    Редактировать профиль
+                </NavLink>
+                <div onClick={UserLogout} className="ProfileGeneralInfo__Logout">
+                    Выход
+                </div>
+            </div>
         </div>
     );
 };

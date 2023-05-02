@@ -6,7 +6,7 @@
   width: 100%;
   gap: 66px;
   padding-bottom: 30px;
-  
+
   font-family: "DM Sans", sans-serif;
   font-style: normal;
 }
@@ -45,13 +45,26 @@
   line-height: 36px;
   color: #000000;
 }
+.ProfileGeneralInfo__Buttons {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.ProfileGeneralInfo__Logout {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  color: #000000;
+  cursor: pointer;
+}
 .ProfileGeneralInfo__Button {
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
-
   width: 280px;
   height: 60px;
   background: #4a3aff;

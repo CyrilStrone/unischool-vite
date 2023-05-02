@@ -1,16 +1,11 @@
 import '../styles/ProfileСhange.css'
 import { useEffect, useState } from "react";
-import { useStore } from "effector-react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
-import { $userAuthorization } from "../../../common/UserHooks";
 import { InProfile } from "../../profile/logics/InProfile";
 import { InProfileСhangeAvatar } from '../logics/InProfileСhangeAvatar';
 import { InProfileСhange } from '../logics/InProfileСhange';
-import { accessTokenName } from '../../../common/axiosInstance';
 export const ProfileСhange = () => {
-    const navigate = useNavigate();
-    const userAuthorization = useStore($userAuthorization);
     const [value, setValue] = useState<any>()
     const [valuecheck, setValuecheck] = useState<any>()
     const requestInProfile = async () => {
@@ -26,12 +21,8 @@ export const ProfileСhange = () => {
             await InProfileСhangeAvatar({ file: value.avatar });
     }
     useEffect(() => {
-        if (localStorage.getItem(accessTokenName)?.length) {
             requestInProfile()
-        } else {
-            navigate("/Authorization")
-        }
-    }, [userAuthorization])
+    }, [])
     const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             setValue({

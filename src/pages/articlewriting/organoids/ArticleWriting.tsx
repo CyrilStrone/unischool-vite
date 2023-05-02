@@ -1,21 +1,13 @@
 import '../styles/ArticleWriting.css'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import defaultBack from '../../../common/assets/articleWriting/back.png'
 import { CircleBackground } from '../../../ui/circlebackground/organoids/CircleBackground';
-import { $userAuthorization } from '../../../common/UserHooks';
-import { useStore } from 'effector-react';
 import { useNavigate } from 'react-router-dom';
 import { IInArticleWriting, InArticleWriting } from '../logics/InArticleWriting';
-import { accessTokenName } from '../../../common/axiosInstance';
 
 export const ArticleWriting = () => {
-    const userAuthorization = useStore($userAuthorization);
     const navigate = useNavigate();
-    useEffect(() => {
-        if (!localStorage.getItem(accessTokenName)?.length) {
-            navigate("/Authorization")
-        }
-    }, [userAuthorization])
+
     const requestInArticleWriting = async (params: IInArticleWriting) => {
         await InArticleWriting({ ...params })
     }

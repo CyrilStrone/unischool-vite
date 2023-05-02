@@ -9,7 +9,7 @@ export interface IInRegistration {
     lastName: string
     login: string
     role: string
-    navigate:any
+    navigate: any
 }
 export const InRegistration = async (params: IInRegistration) => {
     return axiosInstance.post(
@@ -21,7 +21,11 @@ export const InRegistration = async (params: IInRegistration) => {
         "login": params.login,
         "role": params.role
     })
-        .then((res: any) => { setAccessToken(res.data.token); params.navigate("/Profile") })
+        .then((res: any) => { 
+            axiosInstance.defaults.headers.authorization = `Bearer ${res.data.token}`;
+            setAccessToken(res.data.token); 
+            params.navigate("/Profile") 
+        })
         .catch(() => {
             setAccessToken("")
         })

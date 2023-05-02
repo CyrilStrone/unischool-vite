@@ -1,11 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/Registration.css"
 import Man from "../../../common/assets/registration/Man.png"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IInRegistration, InRegistration } from "../logics/InRegistration";
-import { useStore } from "effector-react";
-import { $userAuthorization } from "../../../common/UserHooks";
-import { accessTokenName } from "../../../common/axiosInstance";
 export const Registration = () => {
     const navigate = useNavigate();
 
@@ -19,12 +16,7 @@ export const Registration = () => {
         } else {
         }
     };
-    const userAuthorization = useStore($userAuthorization);
-    useEffect(() => {
-        if (localStorage.getItem(accessTokenName)?.length) {
-            navigate("/Profile")
-        }
-    }, [userAuthorization])
+
     return (
         <div className="Registration">
             <div className="Registration__Image">

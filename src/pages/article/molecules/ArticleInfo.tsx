@@ -8,8 +8,8 @@ import { NavLink } from 'react-router-dom';
 import { IInArcticleLike, InArcticleLike } from '../logics/InArcticleLike'
 import { apiImage } from '../../../common/axiosInstance';
 import { IInArcticleLikeCheck, InArcticleLikeCheck } from '../logics/InArcticleLikeCheck';
-import { $userAuthorization } from '../../../common/UserHooks';
 import { useStore } from 'effector-react';
+import { $accessToken } from '../../../common/accessToken';
 interface IArticleInfo {
     authorId: number
     firstName: string
@@ -22,7 +22,7 @@ interface IArticleInfo {
 }
 export const ArticleInfo = (params: IArticleInfo) => {
     const [check, setCheck] = useState<boolean>(false)
-    const userAuthorization = useStore($userAuthorization);
+    const accessToken = useStore($accessToken);
     const requestInArcticleLike = async (params: IInArcticleLike) => {
         await InArcticleLike({ ...params })
     }
@@ -30,7 +30,7 @@ export const ArticleInfo = (params: IArticleInfo) => {
         await InArcticleLikeCheck({ ...params })
     }
     const onCLickButton = () => {
-        if (userAuthorization) {
+        if (accessToken) {
             if (check) {
                 requestInArcticleLike({ postId: params.postId, delete: true, requestInArcticle: params.requestInArcticle })
                 setCheck(false)

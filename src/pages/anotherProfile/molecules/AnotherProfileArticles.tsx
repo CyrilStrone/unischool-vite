@@ -1,24 +1,24 @@
 import { useStore } from "effector-react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { $accessToken } from "../../../common/accessToken";
 import { apiImage } from "../../../common/axiosInstance";
-import { $userAuthorization } from "../../../common/UserHooks";
 import { InAnotherProfileArticles } from "../logics/InAnotherProfileArticles";
 import "../styles/AnotherProfileArticles.css"
 interface IAnotherProfileArticles {
     id: number,
 }
 export const AnotherProfileArticles = (params: IAnotherProfileArticles) => {
-    const userAuthorization = useStore($userAuthorization);
+    const accessToken = useStore($accessToken);
     const [value, setValue] = useState<any>()
     const requestInAnotherProfile = async (id: number) => {
         setValue(await InAnotherProfileArticles({ id: id }))
     }
     useEffect(() => {
-        if (userAuthorization && params.id) {
+        if (accessToken && params.id) {
             requestInAnotherProfile(params.id)
         }
-    }, [userAuthorization])
+    }, [accessToken])
     return (
         <div className="AnotherProfileArticles">
             <div className="AnotherProfileArticles__Title">

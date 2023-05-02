@@ -2,14 +2,10 @@ import "../styles/Authorization.css"
 import { NavLink, useNavigate } from "react-router-dom";
 import { IInAuthorization, InAuthorization } from "../logics/InAuthorization";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
-import { $userAuthorization } from "../../../common/UserHooks";
-import { useStore } from "effector-react";
-import { accessTokenName } from "../../../common/axiosInstance";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Authorization = () => {
     const navigate = useNavigate();
-    const userAuthorization = useStore($userAuthorization);
     const [value, setValue] = useState<IInAuthorization>({ email: "", password: "",navigate:navigate })
     const requestLogin = async () => {
         await InAuthorization(value);
@@ -20,11 +16,7 @@ export const Authorization = () => {
         } else {
         }
     };
-    useEffect(() => {
-        if (localStorage.getItem(accessTokenName)?.length) {
-            navigate("/Profile")
-        }
-    }, [userAuthorization])
+
     return (
         <div className="Authorization">
             <div className="Authorization__Title">

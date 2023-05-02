@@ -3,27 +3,17 @@ import { ProfileGeneralInfo } from "../molecules/ProfileGeneralInfo";
 import { ProfileStatistics } from "../molecules/ProfileStatistics";
 import { ProfileArticles } from "../molecules/ProfileArticles";
 import '../styles/Profile.css'
-import { useStore } from "effector-react";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { useEffect, useState } from "react";
-import { $userAuthorization } from "../../../common/UserHooks";
 import { InProfile } from "../logics/InProfile";
-import { useNavigate } from "react-router-dom";
-import { accessTokenName } from "../../../common/axiosInstance";
 export const Profile = () => {
-    const navigate = useNavigate();
-    const userAuthorization = useStore($userAuthorization);
     const [value, setValue] = useState<any>()
     const requestInProfile = async () => {
         setValue(await InProfile())
     }
     useEffect(() => {
-        if (localStorage.getItem(accessTokenName)?.length) {
-            requestInProfile()
-        }else{
-            navigate("/Authorization")
-        }
-    }, [userAuthorization])
+    requestInProfile()
+    }, [])
     return (
         <>
             {value &&

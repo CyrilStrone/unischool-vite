@@ -8,11 +8,11 @@ import { ArticleNewComm } from "../molecules/ArticleNewComm";
 import { ArticleListComm } from "../molecules/ArticleListComm";
 import { ArticleImage } from "../molecules/ArticleImage";
 import { InArcticle } from "../logics/InArcticle";
-import { $userAuthorization } from "../../../common/UserHooks";
 import { useStore } from "effector-react";
+import { $accessToken } from "../../../common/accessToken";
 
 export const Article = () => {
-    const userAuthorization = useStore($userAuthorization);
+    const accessToken = useStore($accessToken);
     const [id, setId] = useState<any>()
     const [value, setValue] = useState<any>()
     const requestInArcticle = async (id: number) => {
@@ -40,7 +40,7 @@ export const Article = () => {
                     )}
                 </div>
                 <ArticleInfo authorId={value.author.id} firstName={value.author.firstName} lastName={value.author.lastName} avatar={value.author.avatar} like={value.like} commLength={value.comment.length} postId={id} requestInArcticle={requestInArcticle} />
-                {userAuthorization && <ArticleNewComm id={value.id} postId={id} requestInArcticle={requestInArcticle} />}
+                {accessToken && <ArticleNewComm id={value.id} postId={id} requestInArcticle={requestInArcticle} />}
                 <ArticleListComm comment={value.comment} />
             </div>
             }

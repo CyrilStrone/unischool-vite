@@ -1,24 +1,24 @@
 import { useStore } from "effector-react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { $accessToken } from "../../../common/accessToken";
 import { apiImage } from "../../../common/axiosInstance";
-import { $userAuthorization } from "../../../common/UserHooks";
 import { InProfileArticles } from "../logics/InProfileArticles";
 import "../styles/ProfileArticles.css"
 interface IProfileArticles {
     id: number,
 }
 export const ProfileArticles = (params: IProfileArticles) => {
-    const userAuthorization = useStore($userAuthorization);
+    const accessToken = useStore($accessToken);
     const [value, setValue] = useState<any>()
     const requestInProfile = async (id: number) => {
         setValue(await InProfileArticles({ id: id }))
     }
     useEffect(() => {
-        if (userAuthorization && params.id) {
+        if (accessToken && params.id) {
             requestInProfile(params.id)
         }
-    }, [userAuthorization])
+    }, [accessToken])
     return (
         <div className="ProfileArticles">
             <div className="ProfileArticles__Title">
