@@ -23,6 +23,7 @@
   gap: 30px;
   flex-direction: column;
   z-index: 1;
+  align-items: center;
 }
 .Authorization__Bar input {
   box-sizing: border-box;
@@ -56,22 +57,22 @@
   color: #170f49;
 }
 .Authorization__Bar__Button {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  color: #ffffff;
-  width: 100%;
-  height: 66px;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
+  font-family: "Montserrat" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  color: #ffffff !important;
+  width: 100% !important;
+  height: 66px !important;
+  display: flex !important;
+  cursor: pointer !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  background: #4a3aff;
-  box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
-  border-radius: 86px;
-  text-decoration: none;
+  background: #8459ff !important;
+  box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26) !important;
+  border-radius: 86px !important;
+  text-decoration: none !important;
 }
 .Authorization__Bar__Forgot {
   width: 100%;
@@ -104,4 +105,31 @@
 .Authorization__Background__Two {
   width: 76%;
   height: 100%;
+}
+.Authorization__Bar__OrBlock {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 31px;
+}
+.Authorization__Bar__OrBlock__Line {
+  width: 165px;
+  height: 0.6px;
+  background-color: #a39797;
+}
+.Authorization__Bar__OrBlock__Title {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: #757171;
+}
+.Authorization__Bar__Registration {
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: #8459ff;
 }

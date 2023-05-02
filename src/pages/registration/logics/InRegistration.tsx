@@ -21,12 +21,12 @@ export const InRegistration = async (params: IInRegistration) => {
         "login": params.login,
         "role": params.role
     })
-        .then((res: any) => { 
-            axiosInstance.defaults.headers.authorization = `Bearer ${res.data.token}`;
-            setAccessToken(res.data.token); 
-            params.navigate("/Profile") 
+        .then((res: any) => {
+            if (res.data.token) {
+                setAccessToken(res.data.token);
+            }
         })
-        .catch(() => {
-            setAccessToken("")
+        .catch((error: any) => {
+            throw new Error(error.response.data.message);
         })
 }

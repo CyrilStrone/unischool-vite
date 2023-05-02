@@ -10,6 +10,6 @@ export const InAnotherProfile = async (params:IInAnotherProfile) => {
             local.avatar = apiImage + local.avatar;
             return (local) })
         .catch(() => {
-            console.log("InAnotherProfile error")
+            window.location.pathname = "";
         })
 }

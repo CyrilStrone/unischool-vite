@@ -89,10 +89,12 @@
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  background: #4a3aff;
+  background: #8459FF;
   box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
   border-radius: 86px;
   text-decoration: none;
+  outline: none;
+  border: none;
 }
 .Registration__Bar__Footer__Authorization {
   display: flex;
@@ -113,7 +115,7 @@
 .Registration__Bar__Footer__Authorization__Blue {
   font-weight: 600;
   font-size: 24px;
-  color: #4a3aff;
+  color: #8459FF;
   text-decoration: none;
 }
 .Registration__Image {

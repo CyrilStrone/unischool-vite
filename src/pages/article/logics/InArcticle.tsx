@@ -8,6 +8,6 @@ export const InArcticle = async (params:IInArcticle) => {
         `/post/${params.id}`)
         .then((res: any) => { return (res.data) })
         .catch(() => {
-            console.log("InArcticle error")
+            window.location.pathname = "";
         })
 }

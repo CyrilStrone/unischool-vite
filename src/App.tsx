@@ -15,6 +15,7 @@ import { Article } from './pages/article/organoids/Article';
 import { ArticleWriting } from './pages/articlewriting/organoids/ArticleWriting';
 import { AnotherProfile } from './pages/anotherProfile/organoids/AnotherProfile';
 import { useStore } from 'effector-react';
+import { CustomValidity } from './ui/customValidity/organoids/CustomValidity';
 function App() {
   const accessToken = useStore($accessToken);
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="App__Actual">
+        <CustomValidity />
         <Routes>
           <Route path="/AnotherProfile/:id" element={<AnotherProfile />} />
           <Route path="/Article/:id" element={<Article />} />

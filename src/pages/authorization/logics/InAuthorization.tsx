@@ -14,11 +14,11 @@ export const InAuthorization = async (params: IInAuthorization) => {
         "password": params.password,
     })
         .then((res: any) => {
-            axiosInstance.defaults.headers.authorization = `Bearer ${res.data.token}`
-            setAccessToken(res.data.token); 
-            params.navigate("/Profile");
+            if (res.data.token) {
+                setAccessToken(res.data.token);
+            }
         })
-        .catch(() => {
-            setAccessToken("")
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }
