@@ -5,6 +5,8 @@ import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleB
 import { InProfile } from "../../profile/logics/InProfile";
 import { InProfileСhangeAvatar } from '../logics/InProfileСhangeAvatar';
 import { InProfileСhange } from '../logics/InProfileСhange';
+import { BackButton } from '../../../ui/backbutton/organoids/BackButton';
+import { setCustomValidityShow } from '../../../ui/customValidity/organoids/CustomValidity';
 export const ProfileСhange = () => {
     const [value, setValue] = useState<any>()
     const [valuecheck, setValuecheck] = useState<any>()
@@ -13,16 +15,24 @@ export const ProfileСhange = () => {
         setValuecheck(await InProfile())
     }
     const requestInProfileСhange = async () => {
-        if (valuecheck.firstName !== value.firstName || valuecheck.lastName !== value.lastName || valuecheck.about !== value.about)
-            await InProfileСhange({ firstName: value.firstName, lastName: value.lastName, about: value.about })
+        try {
+            if (valuecheck.firstName !== value.firstName || valuecheck.lastName !== value.lastName || valuecheck.about !== value.about){
+                await InProfileСhange({ firstName: value.firstName, lastName: value.lastName, about: value.about })
+            }else{
+                setCustomValidityShow("Нет изменений")
+            }
+        } catch (error) {
+            setCustomValidityShow("Информация о пользователе не была изменена")
+        }
     }
     const requestInProfileChangeAvatar = async () => {
-        if (valuecheck.avatar !== value.avatar)
-            await InProfileСhangeAvatar({ file: value.avatar });
+        try {
+            if (valuecheck.avatar !== value.avatar)
+                await InProfileСhangeAvatar({ file: value.avatar });
+        } catch (error) {
+            setCustomValidityShow("Аватар не был изменен")
+        }
     }
-    useEffect(() => {
-            requestInProfile()
-    }, [])
     const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             setValue({
@@ -31,9 +41,13 @@ export const ProfileСhange = () => {
             });
         }
     };
+    useEffect(() => {
+        requestInProfile()
+    }, [])
     return (
         <>{value &&
-            <div className="ProfileСhange">
+            <form onSubmit={e => { e.preventDefault(); requestInProfileСhange(); requestInProfileChangeAvatar(); }} className="ProfileСhange">
+                <BackButton link={"/Profile"} />
                 <div className="ProfileСhange__Title">
                     Редактировать профиль
                 </div>
@@ -53,24 +67,22 @@ export const ProfileСhange = () => {
                     <div className="ProfileСhange__name__Title">
                         Имя пользователя
                     </div>
-                    <input type="text" className="ProfileСhange__Input" placeholder="" onChange={(event: any) => { setValue({ ...value, "firstName": event.target.value }) }} value={value.firstName} />
+                    <input type="text" required minLength={1} maxLength={40} className="ProfileСhange__Input" placeholder="" onChange={(event: any) => { setValue({ ...value, "firstName": event.target.value }) }} value={value.firstName} />
                 </div>
                 <div className="ProfileСhange__name">
                     <div className="ProfileСhange__name__Title">
                         Фамилия пользователя
                     </div>
-                    <input type="text" className="ProfileСhange__Input" placeholder="" onChange={(event: any) => { setValue({ ...value, "lastName": event.target.value }) }} value={value.lastName} />
+                    <input type="text" required minLength={1} maxLength={40} className="ProfileСhange__Input" placeholder="" onChange={(event: any) => { setValue({ ...value, "lastName": event.target.value }) }} value={value.lastName} />
                 </div>
                 <div className="ProfileСhange__about">
                     <div className="ProfileСhange__about__Title">
                         О себе
                     </div>
-                    <input type="text" className="ProfileСhange__Input" placeholder="" onChange={(event: any) => { setValue({ ...value, "about": event.target.value }) }} value={value.about} />
+                    <input type="text" required minLength={1} maxLength={40} className="ProfileСhange__Input" placeholder="" onChange={(event: any) => { setValue({ ...value, "about": event.target.value }) }} value={value.about} />
                 </div>
                 <div className="ProfileСhange__Buttons">
-                    <div onClick={() => { requestInProfileСhange(); requestInProfileChangeAvatar() }} className="ProfileСhange__Buttons__Save ProfileСhange__Buttons__Item">
-                        Сохранить
-                    </div>
+                    <input type="submit" value="Сохранить" className="ProfileСhange__Buttons__Save ProfileСhange__Buttons__Item" />
                     <div onClick={requestInProfile} className="ProfileСhange__Buttons__Delete ProfileСhange__Buttons__Item">
                         Отменить
                     </div>
@@ -78,7 +90,7 @@ export const ProfileСhange = () => {
                 <NavLink to={"/PasswordChange"} className="ProfileСhange__password">
                     Изменить пароль
                 </NavLink>
-            </div>
+            </form>
         }
             <CircleBackground />
         </>

@@ -13,7 +13,7 @@ export const InProfileСhange = async (params: IInProfileСhange) => {
     })
         .then((res: any) => {
         })
-        .catch(() => {
-            console.log("InProfileСhange error")
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

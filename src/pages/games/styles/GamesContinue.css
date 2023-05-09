@@ -1,0 +1,78 @@
+.GamesContinue{
+    font-family: "DM Sans", sans-serif;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 1;
+    gap: 50px;
+}
+.GamesContinue__Title{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 46px;
+    text-align: center;
+    color: #170f49;
+}
+.GamesContinue__Block{
+    background: #ffffff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+    border-radius: 46px;
+    outline: none;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 36px;
+    color: #000000;
+    padding: 7px 38px 7px 38px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+    box-sizing: border-box;
+}
+.GamesContinue__Block__Image{
+    width: 356px;
+    height: 100%;
+    object-fit: cover;
+}
+.GamesContinue__Block__Info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 296px;
+}
+.GamesContinue__Block__Info__Title{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+}
+.GamesContinue__Block__Info__Description{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+    
+}
+.GamesContinue__Block__Info__Footer{
+    display: flex;
+    justify-content: space-between;
+}
+.GamesContinue__Block__Info__Footer__Link{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #8459FF;
+    text-decoration: none;
+}
+.GamesContinue__Block__Info__Footer__Top{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+}

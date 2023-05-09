@@ -13,6 +13,7 @@
     "effector": "^22.8.0",
     "effector-react": "^22.5.1",
     "react": "^18.2.0",
+    "react-card-memory-game": "^1.1.5",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0"
   },

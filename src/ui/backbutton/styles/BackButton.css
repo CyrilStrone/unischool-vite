@@ -1,0 +1,18 @@
+.BackButton{
+    display: flex;
+    gap: 17px;
+    font-family: "DM Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #8459FF;
+    align-items: center;
+    text-decoration: none;
+}
+.BackButton img{
+    height: 25px;
+    width: 100%;
+    object-fit: cover;
+}

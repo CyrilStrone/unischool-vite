@@ -105,6 +105,12 @@
   color: #000000;
   cursor: pointer;
 }
+.ProfileСhange__Buttons__Save{
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
 .ProfileСhange__Buttons__Item:hover {
   color: #8459FF;
 }

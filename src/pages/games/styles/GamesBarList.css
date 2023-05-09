@@ -1,0 +1,93 @@
+.GamesBarList__Block {
+}
+.GamesBarList__General {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+  border-radius: 46px;
+  padding: 10px 18px 10px 18px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  position: relative;
+  color: #000000;
+}
+.GamesBarList__General__Header {
+  display: grid;
+  grid-template-columns: 15% 5% 15% 40% 25%;
+  padding-left: 40px;
+  height: 66px;
+  padding-right: 46px;
+}
+.GamesBarList__General__Header div {
+  display: flex;
+  align-items: center;
+}
+.GamesBarList__General__Footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 460px;
+  overflow-y: scroll;
+  padding-right: 20px;
+  overflow-x: hidden;
+}
+.GamesBarList__General__Footer__item {
+  display: grid;
+  grid-template-columns: 15% 5% 15% 40% 25%;
+  height: 66px;
+  background: #eaeaed;
+  border-radius: 46px;
+  padding-left: 40px;
+  min-height: 66px;
+}
+.GamesBarList__General__Footer__item div {
+  display: flex;
+  align-items: center;
+}
+.GamesBarList__General__User {
+  width: -webkit-fill-available;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+  border-radius: 46px;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  position: relative;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 15% 5% 15% 40% 25%;
+  height: 66px;
+  background: #eaeaed;
+  border-radius: 46px;
+  padding-left: 40px;
+  min-height: 66px;
+  background: #8459ff;
+  margin-left: 18px;
+  margin-right: 58px;
+}
+.GamesBarList__General__User div {
+  display: flex;
+  align-items: center;
+}
+.GamesBarList__General__Footer::-webkit-scrollbar {
+  width: 22px;
+}
+.GamesBarList__General__Footer::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 46px;
+  margin-bottom: 15px;
+}
+
+.GamesBarList__General__Footer::-webkit-scrollbar-thumb {
+  background-color: #8459ff;
+  border-radius: 46px;
+}

@@ -1,7 +1,5 @@
-import { useStore } from "effector-react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { $accessToken } from "../../../common/accessToken";
 import { apiImage } from "../../../common/axiosInstance";
 import { InAnotherProfileArticles } from "../logics/InAnotherProfileArticles";
 import "../styles/AnotherProfileArticles.css"
@@ -9,16 +7,15 @@ interface IAnotherProfileArticles {
     id: number,
 }
 export const AnotherProfileArticles = (params: IAnotherProfileArticles) => {
-    const accessToken = useStore($accessToken);
     const [value, setValue] = useState<any>()
     const requestInAnotherProfile = async (id: number) => {
         setValue(await InAnotherProfileArticles({ id: id }))
     }
     useEffect(() => {
-        if (accessToken && params.id) {
+        if (params.id) {
             requestInAnotherProfile(params.id)
         }
-    }, [accessToken])
+    }, [])
     return (
         value && value.length !== 0 ?
             <div className="AnotherProfileArticles">

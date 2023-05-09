@@ -7,7 +7,7 @@ export const HeaderNav = () => {
     return (
         accessToken ?
                 <div className="HeaderNav">
-                    <NavLink to="/">Мини-игры</NavLink>
+                    <NavLink to="/Games">Мини-игры</NavLink>
                     <NavLink to="/Blog">Блог</NavLink>
                 </div>
             : null

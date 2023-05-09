@@ -1,0 +1,36 @@
+.CardMemory{
+    z-index: 1;
+}
+.CardMemory__Front{
+    background: #341296 !important;
+    border: 5px solid #8459FF;
+    border-radius: 0;
+}
+.CardMemory__Back{
+    background: #341296 !important;
+    border: 5px solid #8459FF;
+    box-sizing: border-box;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.MemoryGame_grid{
+    row-gap: 0;
+    column-gap: 0;
+}
+.MemoryGame_gridTemplateColumns4{
+    grid-template-columns: repeat(4, 230px);
+}
+.ReactFlipCard_flipCardContainer{
+    height: 230px !important;
+}
+.MemoryGame_cardCss {
+    font-size: 4rem;
+}
+.MemoryGame_padding20 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

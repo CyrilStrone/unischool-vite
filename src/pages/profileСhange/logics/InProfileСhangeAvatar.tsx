@@ -11,7 +11,7 @@ export const InProfileСhangeAvatar = async (params: IInProfileСhangeAvatar) =>
     )
         .then((res: any) => {
         })
-        .catch(() => {
-            console.log("IInProfileСhangeAvatar error")
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

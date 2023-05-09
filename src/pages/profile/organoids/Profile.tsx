@@ -12,7 +12,7 @@ export const Profile = () => {
         setValue(await InProfile())
     }
     useEffect(() => {
-    requestInProfile()
+        requestInProfile()
     }, [])
     return (
         <>

@@ -1,0 +1,121 @@
+.GamesBarInfo__Block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 37px;
+  width: 100%;
+}
+.GamesBarInfo__ContinueAndList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.GamesBarInfo__ContinueAndList__Game {
+  display: flex;
+  flex-direction: column;
+  width: 453px;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+  border-radius: 46px;
+  box-sizing: border-box;
+  padding: 30px 30px 30px 30px;
+  gap: 36px;
+}
+.GamesBarInfo__ContinueAndList__Game__Header {
+  display: flex;
+  flex-direction: row;
+}
+.GamesBarInfo__ContinueAndList__Game__Header__Image {
+  width: 102px;
+  height: 102px;
+  object-fit: cover;
+}
+.GamesBarInfo__ContinueAndList__Game__Header__Title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 46px;
+  color: #170f49;
+}
+.GamesBarInfo__ContinueAndList__Game__Description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  color: #170f49;
+}
+.GamesBarInfo__ContinueAndList__Game__Link {
+  width: 270px;
+  height: 67px;
+  display: flex;
+  background: #8459ff;
+  box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
+  border-radius: 86px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 20px;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+}
+.GamesBarInfo__ContinueAndList__Top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+.GamesBarInfo__ContinueAndList__Top__Title {
+  margin-left: 25px;
+}
+.GamesBarInfo__ContinueAndList__Top__List {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.GamesBarInfo__ContinueAndList__Top__List__Item {
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+  border-radius: 30px;
+  padding: 10px 100px 10px 30px;
+  align-items: center;
+  gap: 16px;
+}
+.GamesBarInfo__ContinueAndList__Top__List__Item__Id {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 36px;
+  color: #000000;
+}
+.GamesBarInfo__ContinueAndList__Top__List__Item__Image {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  object-fit: cover;
+  background-color: #8459ff;
+}
+.GamesBarInfo__ContinueAndList__Top__List__Item__Info {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+.GamesBarInfo__ContinueAndList__Top__List__Item__Info__Name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 36px;
+  color: #000000;
+}
+.GamesBarInfo__ContinueAndList__Top__List__Item__Info__Total {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+}

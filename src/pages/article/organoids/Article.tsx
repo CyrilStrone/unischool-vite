@@ -10,6 +10,7 @@ import { ArticleImage } from "../molecules/ArticleImage";
 import { InArcticle } from "../logics/InArcticle";
 import { useStore } from "effector-react";
 import { $accessToken } from "../../../common/accessToken";
+import { BackButton } from "../../../ui/backbutton/organoids/BackButton";
 
 export const Article = () => {
     const accessToken = useStore($accessToken);
@@ -30,6 +31,7 @@ export const Article = () => {
     return (
         <>
             {value && <div className="Article">
+            <BackButton link={"/Blog"} />
                 <ArticleImage image={value.background} />
                 <div className="Article__Base">
                     {value.content && value.content.map((e: any, id: number) =>

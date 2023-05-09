@@ -14,9 +14,11 @@ export const InPasswordChange = async (params:IInPasswordChange) => {
             "newPassword": params.newPassword,
         })
         .then((res: any) => { 
-            params.navigate("/Profile")
+            if (res.data) {
+                params.navigate("/Profile")
+            }
         })
-        .catch(() => {
-            console.log("InPasswordChange error")
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }
