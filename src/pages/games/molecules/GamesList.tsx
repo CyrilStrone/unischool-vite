@@ -4,9 +4,26 @@ import "../styles/GamesList.css"
 import ArithmeticCall from '../../../common/assets/games/ArithmeticCall.png'
 import CardMemory from '../../../common/assets/games/CardMemory.png'
 import ArithmeticScale from '../../../common/assets/games/ArithmeticScale.png'
+import { useEffect, useState } from "react";
+import { InGamesList } from "../logics/InGamesList";
+import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity";
 
 export const GamesList = () => {
-
+    const [value,setValue] = useState<any>([])
+    useEffect(()=>{
+        handleClick()
+    },[])
+    useEffect(()=>{
+        console.log("value",value)
+    },[value])
+    const handleClick = async () => {
+        try {
+            const result = await InGamesList();
+            setValue(result)
+        } catch (error) {
+            setCustomValidityShow("Нет игры")
+        }
+    };
     return (
         <div className="GamesList">
             <div className="GamesList__Title">

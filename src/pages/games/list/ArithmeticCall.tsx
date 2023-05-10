@@ -3,13 +3,13 @@ import { setLevel } from "../../../common/UserHooks";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { GamesFinal } from "../molecules/GamesFinal";
 import "../styles/ArithmeticCall.css"
-type Question = {
-    question: string;
-    answers: number[];
-    answer: number;
+interface IQuestion  {
+    question: string
+    answers: number[]
+    answer: number
 };
 export const ArithmeticCall = () => {
-    const [questions, setQuestions] = useState<Question[]>([
+    const [questions, setQuestions] = useState<IQuestion[]>([
         {
             question: "1+4",
             answers: [5, 6, 2, 10],
@@ -47,23 +47,13 @@ export const ArithmeticCall = () => {
         setIsAnswered(true);
         if (answer === questions[currentQuestionIndex].answer) {
             setScore(score + 5);
-            setTimeout(() => handleNextButtonClick(), 1000)
-        } else {
-            setTimeout(() => handleNextButtonClick(), 1000)
         }
-
-    };
-    const handleNextButtonClick = () => {
-        setSelectedAnswer(null);
-        setIsAnswered(false);
-        if (currentQuestionIndex < questions.length - 1) {
+        setTimeout(() => {
+            setSelectedAnswer(null);
+            setIsAnswered(false);
             setCurrentQuestionIndex(currentQuestionIndex + 1);
-        } else {
-            setFinalTime(time)
-            setStop(true)
-        }
+        }, 1000)
     };
-
     const calculateTime = (startTime: any) => {
         const getCurrentTime = () => {
             const padZero = (num: any) => {
@@ -78,28 +68,24 @@ export const ArithmeticCall = () => {
         };
         getCurrentTime();
         setInterval(getCurrentTime, 1000);
-
     };
+    useEffect(() => {
+        setLevel({ start: 0, end: 5, score: score, index: currentQuestionIndex })
+        if (currentQuestionIndex > 4) {
+            setFinalTime(time)
+            setTimeout(() => setStop(true), 1000)
+        }
+    }, [currentQuestionIndex])
     useEffect(() => {
         setLevel({ start: 0, end: 5, score: score, index: currentQuestionIndex })
         calculateTime(new Date());
     }, [])
-    useEffect(() => {
-        if (currentQuestionIndex !== 0) {
-            setLevel({ start: 0, end: 5, score: score, index: currentQuestionIndex })
-        }
-    }, [currentQuestionIndex])
-    useEffect(() => {
-        if (stop) {
-            setLevel({ start: 0, end: 5, score: score, index: currentQuestionIndex + 1 })
-        }
-    }, [stop])
     return (
         <>
             <div className="ArithmeticCall">
                 {stop ?
                     <GamesFinal id={1} total={score} time={finalTime} /> :
-                    <div className="ArithmeticCall__Block">
+                    questions[currentQuestionIndex] && <div className="ArithmeticCall__Block">
                         <div className="ArithmeticCall__Block__Time">
                             {time}
                         </div>
@@ -120,14 +106,14 @@ export const ArithmeticCall = () => {
                                         fontWeight: answer === selectedAnswer ? 'bold' : 'normal',
                                         backgroundColor:
                                             isAnswered && answer === questions[currentQuestionIndex].answer
-                                                ? 'rgba(58, 190, 37, 1)' // Подсветка правильного ответа
+                                                ? 'rgba(58, 190, 37, 1)'
                                                 : isAnswered && answer === selectedAnswer
-                                                    ? 'rgba(218, 45, 45, 1)' // Подсветка неправильного ответа
+                                                    ? 'rgba(218, 45, 45, 1)'
                                                     : 'white',
                                         color: isAnswered && answer === questions[currentQuestionIndex].answer
-                                            ? 'white' // Подсветка правильного ответа
+                                            ? 'white'
                                             : isAnswered && answer === selectedAnswer
-                                                ? 'white' // Подсветка неправильного ответа
+                                                ? 'white'
                                                 : 'black',
                                         cursor: 'pointer',
                                         border: isAnswered && answer === questions[currentQuestionIndex].answer

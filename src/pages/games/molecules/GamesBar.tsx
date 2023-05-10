@@ -7,6 +7,8 @@ import { NavLink } from "react-router-dom";
 import { GamesBarInfo } from "../atomes/GamesBarInfo";
 import { GamesBarAchievements } from "../atomes/GamesBarAchievements";
 import { GamesBarList } from "../atomes/GamesBarList";
+import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity";
+import { InGamesList } from "../logics/InGamesList";
 export interface IGamesBar {
     id?: string
 }
@@ -80,7 +82,7 @@ export const GamesBar = (params: IGamesBar) => {
             }]
 
         })
-
+    
     const accessToken = useStore($accessToken);
     const [id, setId] = useState<any>()
     // const requestInArcticle = async (id: number) => {

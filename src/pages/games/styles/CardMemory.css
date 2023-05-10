@@ -1,6 +1,6 @@
 .CardMemory {
   font-family: "DM Sans", sans-serif;
-  width: 1000px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -34,10 +34,10 @@
   column-gap: 0;
 }
 .MemoryGame_gridTemplateColumns4 {
-  grid-template-columns: repeat(4, 230px);
+  grid-template-columns: repeat(4, 200px);
 }
 .ReactFlipCard_flipCardContainer {
-  height: 230px !important;
+  height: 200px !important;
 }
 .MemoryGame_cardCss {
   font-size: 4rem;

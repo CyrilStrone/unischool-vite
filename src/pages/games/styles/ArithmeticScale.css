@@ -1,0 +1,52 @@
+.ArithmeticScale {
+  font-family: "DM Sans", sans-serif;
+  width: 800px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 118px;
+  padding-bottom: 118px;
+  z-index: 1;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+}
+.ArithmeticScale__Number {
+  width: 80px;
+  height: 80px;
+  background: #ff3ac8;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+}
+.ArithmeticScale__Label {
+  width: 258px;
+  height: 63px;
+  background: #8459ff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  color: #ffffff;
+  justify-content: center;
+}
+.ArithmeticScale__Time{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    color: #000000;
+}

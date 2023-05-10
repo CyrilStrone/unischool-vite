@@ -27,33 +27,33 @@ export const CardMemory = () => {
 
     };
     useEffect(() => {
-        setLevel({ start: 0, end: 8, score: currentQuestionIndex * 5, index: currentQuestionIndex })
-        calculateTime(new Date());
-    }, [])
-    useEffect(() => {
         if (currentQuestionIndex !== 0) {
-            setLevel({ start: 0, end: 8, score: currentQuestionIndex * 4, index: currentQuestionIndex })
+            setLevel({ start: 0, end: 8, score: currentQuestionIndex * 5, index: currentQuestionIndex })
             if (currentQuestionIndex > 7) {
                 setFinalTime(time)
                 setTimeout(() => setStop(true), 1000)
             }
         }
     }, [currentQuestionIndex])
+    useEffect(() => {
+        setLevel({ start: 0, end: 8, score: currentQuestionIndex * 5, index: currentQuestionIndex })
+        calculateTime(new Date());
+    }, [])
     return (
         <>
             <div className="CardMemory">
-                {stop ?
-                    <GamesFinal id={1} total={currentQuestionIndex * 5} time={finalTime} />
-                    :
-                    <>
-                        <div className="CardMemory__Time">
-                            {finalTime ? finalTime : time}
-                        </div>
-                        <MemoryGame gridNumber={4} foundPair={(event: any) => setCurrentQuestionIndex(currentQuestionIndex + 1)} frontCardsCss={"CardMemory__Front"} backCardsCss={"CardMemory__Back"} />
-                    </>
+                {
+                    stop ?
+                        <GamesFinal id={3} total={currentQuestionIndex * 5} time={finalTime} />
+                        :
+                        <>
+                            <div className="CardMemory__Time">
+                                {finalTime ? finalTime : time}
+                            </div>
+                            <MemoryGame gridNumber={4} foundPair={(event: any) => setCurrentQuestionIndex(currentQuestionIndex + 1)} frontCardsCss={"CardMemory__Front"} backCardsCss={"CardMemory__Back"} />
+                        </>
                 }
             </div>
-
             <CircleBackground />
         </>
     );
