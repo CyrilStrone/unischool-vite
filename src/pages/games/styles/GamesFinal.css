@@ -1,0 +1,63 @@
+.GamesFinal__General{
+    font-family: "DM Sans", sans-serif;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 118px;
+    padding-bottom: 118px;
+    z-index: 1;
+    gap: 50px;
+}
+.GamesFinal{
+    display: flex;
+    flex-direction: column;
+    width: 453px;
+    background: #ffffff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
+    border-radius: 46px;
+    box-sizing: border-box;
+    padding: 30px 30px 30px 30px;
+    gap: 36px;
+}
+.GamesFinal__Header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.GamesFinal__Header__Image{
+    width: 102px;
+    height: 102px;
+    object-fit: cover;
+}
+.GamesFinal__Header__Title{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 46px;
+    color: #170f49;
+    max-width: 210px;
+}
+.GamesFinal__Footer{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+}
+.GamesFinal__Footer__Total{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #000000;
+}
+.GamesFinal__Footer__Time{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #000000;
+}

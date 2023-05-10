@@ -25,6 +25,8 @@
 .GamesBarInfo__ContinueAndList__Game__Header {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .GamesBarInfo__ContinueAndList__Game__Header__Image {
   width: 102px;
@@ -37,6 +39,7 @@
   font-size: 24px;
   line-height: 46px;
   color: #170f49;
+  max-width: 210px;
 }
 .GamesBarInfo__ContinueAndList__Game__Description {
   font-style: normal;

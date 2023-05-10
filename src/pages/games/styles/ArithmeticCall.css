@@ -1,0 +1,62 @@
+.ArithmeticCall {
+    font-family: "DM Sans", sans-serif;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 118px;
+    padding-bottom: 118px;
+    z-index: 1;
+    gap: 50px;
+}
+.ArithmeticCall__Block {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.ArithmeticCall__Block__Question {
+  width: 100%;
+  height: 240px;
+  background: #ffffff;
+  border: 10px solid #8459ff;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 20px;
+  color: #000000;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+}
+.ArithmeticCall__Block__Question__Equals {
+  transform: rotate(90deg);
+}
+.ArithmeticCall__Block__Time {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  color: #000000;
+}
+.ArithmeticCall__Block__Answer {
+    display: flex;
+    justify-content: space-between;
+}
+.ArithmeticCall__Block__Answer__Item {
+    width: 234px;
+    height: 109px;
+    border: 10px solid #8459ff;
+    border-radius: 30px;
+    display: flex;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 20px;
+    color: #000000;
+    align-items: center;
+    justify-content: center;
+}

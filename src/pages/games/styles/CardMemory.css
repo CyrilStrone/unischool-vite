@@ -1,36 +1,50 @@
-.CardMemory{
-    z-index: 1;
+.CardMemory {
+  font-family: "DM Sans", sans-serif;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 118px;
+  padding-bottom: 118px;
+  z-index: 1;
+  gap: 50px;
 }
-.CardMemory__Front{
-    background: #341296 !important;
-    border: 5px solid #8459FF;
-    border-radius: 0;
+.CardMemory__Time {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  color: #000000;
 }
-.CardMemory__Back{
-    background: #341296 !important;
-    border: 5px solid #8459FF;
-    box-sizing: border-box;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.CardMemory__Front {
+  background: #341296 !important;
+  border: 5px solid #8459ff;
+  border-radius: 0;
 }
-.MemoryGame_grid{
-    row-gap: 0;
-    column-gap: 0;
+.CardMemory__Back {
+  background: #341296 !important;
+  border: 5px solid #8459ff;
+  box-sizing: border-box;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.MemoryGame_gridTemplateColumns4{
-    grid-template-columns: repeat(4, 230px);
+.MemoryGame_grid {
+  row-gap: 0;
+  column-gap: 0;
 }
-.ReactFlipCard_flipCardContainer{
-    height: 230px !important;
+.MemoryGame_gridTemplateColumns4 {
+  grid-template-columns: repeat(4, 230px);
+}
+.ReactFlipCard_flipCardContainer {
+  height: 230px !important;
 }
 .MemoryGame_cardCss {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 .MemoryGame_padding20 {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

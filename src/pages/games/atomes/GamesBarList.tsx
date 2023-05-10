@@ -8,7 +8,6 @@ interface IGamesBarList {
 }
 
 export const GamesBarList = (params: IGamesBarList) => {
-    const user = useStore($user);
     return (
         <div className="GamesBarList GamesBar__Block">
             <div className="GamesBar__Title">

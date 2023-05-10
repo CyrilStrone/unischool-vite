@@ -46,3 +46,57 @@
   position: absolute;
   left: 24px;
 }
+.Header__Score {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 800px;
+  font-family: "Montserrat";
+}
+.Header__Score__LineBlock {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.Header__Score__LineBlock__Index {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  color: #ffffff;
+  align-items: center;
+    justify-content: center;
+}
+.Header__Score__LineBlock__Line {
+  width: 183px;
+  height: 20px;
+  background: #ffffff;
+  align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.Header__Score__LineBlock__Line__Green{
+  background: #3ABE25;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.Header__Score__LineBlock__End {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  color: #ffffff;
+  align-items: center;
+    justify-content: center;
+}
+.Header__Score__Number {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  color: #FFFFFF;
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

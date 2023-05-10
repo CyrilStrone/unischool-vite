@@ -19,10 +19,11 @@ import { CustomValidity } from './ui/customValidity/organoids/CustomValidity';
 import { Games } from './pages/games/organoids/Games';
 import { CardMemory } from './pages/games/list/CardMemory';
 import { CardSearch } from './pages/games/list/CardSearch';
-import { ArithmeticСall } from './pages/games/list/ArithmeticСall';
+import { ArithmeticCall } from './pages/games/list/ArithmeticCall';
 import { GamesBar } from './pages/games/molecules/GamesBar';
 import { InProfile } from './pages/profile/logics/InProfile';
 import { $user } from './common/UserHooks';
+import { ArithmeticScale } from './pages/games/list/ArithmeticScale';
 
 export  const requestInProfile = async () => {
   try {
@@ -65,8 +66,8 @@ function App() {
               <Route path="/Games" element={<Games />} />
               <Route path="/Games/Bar/:id" element={<GamesBar/>} />
               <Route path="/Games/Bar/CardMemory" element={<CardMemory />} />
-              <Route path="/Games/Bar/CardSearch" element={<CardSearch />} />
-              <Route path="/Games/Bar/ArithmeticСall" element={<ArithmeticСall />} />
+              <Route path="/Games/Bar/ArithmeticScale" element={<ArithmeticScale />} />
+              <Route path="/Games/Bar/ArithmeticCall" element={<ArithmeticCall />} />
               <Route path='*' element={<Profile />} />
             </> :
             <>
