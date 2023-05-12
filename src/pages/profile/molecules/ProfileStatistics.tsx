@@ -6,9 +6,8 @@ interface IProfileStatistics {
     shockMode: string,
     totalPoints: string
 }
+
 export const ProfileStatistics = (params: IProfileStatistics) => {
-
-
     return (
         <div className="ProfileStatistics">
             <div className="ProfileStatistics__Title">

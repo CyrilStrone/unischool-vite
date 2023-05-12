@@ -60,6 +60,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 296px;
+    width: 100%;
 }
 .GamesList__Bar__Item__Block__Title{
     font-style: normal;

@@ -1,5 +1,4 @@
 import '../styles/BlogListItem.css'
-import Back from "../../../common/assets/blog/Back.png"
 import { NavLink } from 'react-router-dom'
 import { apiImage } from '../../../common/axiosInstance'
 
@@ -10,6 +9,7 @@ export interface IBlogListItem {
     articleId: number
     background: string
 }
+
 export const BlogListItem = (params: IBlogListItem) => {
 
 

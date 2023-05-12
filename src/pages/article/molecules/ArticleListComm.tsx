@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import '../styles/ArticleListComm.css'
-import DefaulUser from '../../../common/assets/article/defaultUser 2.png'
 import { apiImage } from '../../../common/axiosInstance';
 import { NavLink } from 'react-router-dom';
+
 interface IArticleListComm {
     comment: any
 }
+
 export const ArticleListComm = (params: IArticleListComm) => {
     return (
         <div className='ArticleListComm__Gen'>

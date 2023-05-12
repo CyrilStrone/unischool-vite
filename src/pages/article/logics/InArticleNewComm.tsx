@@ -5,6 +5,7 @@ export interface IInArticleNewComm {
     text: string
     requestInArcticle: any
 }
+
 export const InArticleNewComm = async (params: IInArticleNewComm) => {
     return axiosInstance.post(
         `/comment`, {
@@ -12,7 +13,7 @@ export const InArticleNewComm = async (params: IInArticleNewComm) => {
         "text": params.text
     })
         .then((res: any) => { params.requestInArcticle(params.postId) })
-        .catch(() => {
-            console.log("InArcticle error")
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

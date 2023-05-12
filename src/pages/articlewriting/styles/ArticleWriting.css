@@ -55,7 +55,7 @@
   height: 60px;
   padding-left: 61px;
   padding-right: 61px;
-  background: #8459FF;
+  background: #8459ff;
   border-radius: 30px;
   font-weight: 700;
   font-size: 18px;
@@ -63,6 +63,8 @@
   user-select: none;
   color: #ffffff;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 .ArticleWriting__AfterSubtitleBlock__Input {
   min-height: 399px;
@@ -72,7 +74,7 @@
   font-size: 18px;
   line-height: 36px;
 }
-.ArticleWriting__Block__General{
+.ArticleWriting__Block__General {
   width: 100%;
   display: flex;
   gap: 53px;
@@ -94,7 +96,13 @@
 .ArticleWriting__CoverBlock input[type="file"] {
   display: none;
 }
-.ArticleWriting__Button__Bar{
+.ArticleWriting__Button__Bar {
   display: flex;
   gap: 18px;
+}
+.ArticleWriting__Required {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
 }

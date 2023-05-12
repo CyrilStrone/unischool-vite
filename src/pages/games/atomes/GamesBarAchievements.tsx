@@ -1,18 +1,28 @@
 import "../styles/GamesBarAchievements.css"
-import { NavLink } from "react-router-dom";
 import Like from '../../../common/assets/profile/Like.png'
 import Fire from '../../../common/assets/profile/Fire.png'
 import Level from '../../../common/assets/profile/Level.png'
 import Best from '../../../common/assets/profile/Best.png'
+import { useEffect, useState } from "react";
+
 interface IGamesBarAchievements {
-    id: number
     value: any
 }
 
 export const GamesBarAchievements = (params: IGamesBarAchievements) => {
+    const [value, setValue] = useState<any>();
+
+    useEffect(() => {
+        let sum = 0;
+        if (params.value && params.value.myScore && params.value.myScore.score)
+            for (let i = 0; i < params.value.myScore.score.length; i++) {
+                sum += params.value.myScore.score[i];
+            }
+        setValue({ ...value, sum: sum })
+    }, [params.value])
 
     return (
-        <div className="GamesBarAchievements GamesBar__Block">
+        params.value && <div className="GamesBarAchievements GamesBar__Block">
             <div className="GamesBar__Title">
                 Ваши достижения
             </div>
@@ -24,7 +34,7 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Ударный режим
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            {params.value.you.shockMode} очков
+                            0 дней
                         </div>
                     </div>
                 </div>
@@ -35,7 +45,7 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Всего очков
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            {params.value.you.totalPoints} очков
+                            {value && value.sum && value.sum} очков
                         </div>
                     </div>
                 </div>
@@ -46,7 +56,7 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Ваш уровень
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            {params.value.you.totalPoints} уровень
+                            5 уровень
                         </div>
                     </div>
                 </div>
@@ -57,7 +67,8 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Вы лучше
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            {params.value.you.totalPoints}% игроков
+                            {/* {params.value.myScore.totalPoints}% игроков */}
+                            0
                         </div>
                     </div>
                 </div>

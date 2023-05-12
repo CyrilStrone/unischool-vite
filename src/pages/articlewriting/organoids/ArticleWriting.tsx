@@ -4,16 +4,26 @@ import defaultBack from '../../../common/assets/articleWriting/back.png'
 import { CircleBackground } from '../../../ui/circlebackground/organoids/CircleBackground';
 import { useNavigate } from 'react-router-dom';
 import { IInArticleWriting, InArticleWriting } from '../logics/InArticleWriting';
+import { setCustomValidityShow } from '../../../ui/customValidity/organoids/CustomValidity';
 
 export const ArticleWriting = () => {
     const navigate = useNavigate();
 
     const requestInArticleWriting = async (params: IInArticleWriting) => {
-        await InArticleWriting({ ...params })
+        try {
+            await InArticleWriting({ ...params })
+            setCustomValidityShow("Статья создана");
+        } catch (error) {
+            setCustomValidityShow("Статья не создана")
+        }
     }
     const onCLickButton = () => {
-        if (value.background && value.content[0].title && value.content[0].text && value.description && value.title) {
-            requestInArticleWriting(value)
+        if (value.content[0].title && value.content[0].text && value.description && value.title) {
+            if(value.background){
+                requestInArticleWriting(value)
+            }else{
+                setCustomValidityShow("Добавьте обложку статьи")
+            }
         }
     }
     const [valueBackground, setValueBackground] = useState<any>("")
@@ -44,7 +54,6 @@ export const ArticleWriting = () => {
     };
 
     const handleAvatarCover = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log("efefef")
         if (event.target.files && event.target.files.length > 0 && event.target.files[0] !== value.background) {
             setValue({
                 ...value,
@@ -54,7 +63,7 @@ export const ArticleWriting = () => {
         }
     };
     return (
-        <><div className="ArticleWriting">
+        <><form onSubmit={e => { e.preventDefault(); onCLickButton(); }} className="ArticleWriting">
             <div className="ArticleWriting__Title">
                 Написание статьи
             </div>
@@ -63,18 +72,19 @@ export const ArticleWriting = () => {
                     Обложка статьи
                 </div>
                 <label htmlFor="label" style={{ backgroundImage: `url(${valueBackground ? valueBackground : defaultBack})` }} className="ArticleWriting__CoverBlock__Label" />
-                <input
+                <input 
                     id="label"
                     type="file"
                     onChange={handleAvatarCover}
                     accept="image/*"
                 />
+                <div className="ArticleWriting__Required">Все поля обязательны для заполнения</div>
             </div>
             <div className="ArticleWriting__TitleBlock ArticleWriting__Block">
                 <div className="ArticleWriting__SubTitle">
                     Заголовок статьи
                 </div>
-                <input type="text" maxLength={40} onChange={(event: any) => {
+                <input required minLength={5} type="text" maxLength={40} onChange={(event: any) => {
                     setValue((prevState: any) => ({
                         ...prevState,
                         title: event.target.value
@@ -85,7 +95,7 @@ export const ArticleWriting = () => {
                 <div className="ArticleWriting__SubTitle">
                     Описание статьи
                 </div>
-                <input type="text" maxLength={40} onChange={(event: any) => {
+                <input required minLength={5} type="text" maxLength={40} onChange={(event: any) => {
                     setValue((prevState: any) => ({
                         ...prevState,
                         description: event.target.value
@@ -99,13 +109,13 @@ export const ArticleWriting = () => {
                             <div className="ArticleWriting__SubTitle">
                                 Подзаголовок статьи
                             </div>
-                            <input type="text" maxLength={40} onChange={(event: any) => { updateContent(index, "title", event.target.value); }} value={e.title} className="ArticleWriting__SubTitleBlock__Input ArticleWriting__Input" />
+                            <input type="text" required minLength={5} maxLength={40} onChange={(event: any) => { updateContent(index, "title", event.target.value); }} value={e.title} className="ArticleWriting__SubTitleBlock__Input ArticleWriting__Input" />
                         </div>
                         <div className="ArticleWriting__AfterSubtitleBlock ArticleWriting__Block">
                             <div className="ArticleWriting__SubTitle">
                                 Текст после подзаголовка
                             </div>
-                            <textarea onChange={(event: any) => { updateContent(index, "text", event.target.value); }} value={e.value} className="ArticleWriting__AfterSubtitleBlock__Input ArticleWriting__Input" />
+                            <textarea required minLength={5} onChange={(event: any) => { updateContent(index, "text", event.target.value); }} value={e.value} className="ArticleWriting__AfterSubtitleBlock__Input ArticleWriting__Input" />
                         </div>
                     </div>
                 )
@@ -114,11 +124,10 @@ export const ArticleWriting = () => {
                 <div className="ArticleWriting__Button" onClick={() => { handleAddContent() }}>
                     Добавить заголовок
                 </div>
-                <div className="ArticleWriting__Button" onClick={onCLickButton}>
-                    Завершить
-                </div>
+                <input className="ArticleWriting__Button" type="submit" value="Завершить"  onClick={onCLickButton}>
+                </input>
             </div>
-        </div>
+        </form>
             <CircleBackground />
         </>
     );

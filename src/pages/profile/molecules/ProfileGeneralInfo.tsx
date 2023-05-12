@@ -1,6 +1,7 @@
+import "../styles/ProfileGeneralInfo.css"
 import { NavLink } from "react-router-dom";
 import { UserLogout } from "../../../common/accessToken";
-import "../styles/ProfileGeneralInfo.css"
+
 interface IProfileGeneralInfo {
     image: string,
     login: string,
@@ -10,6 +11,7 @@ interface IProfileGeneralInfo {
     about: string,
     id: number
 }
+
 export const ProfileGeneralInfo = (params: IProfileGeneralInfo) => {
     let date = new Date(params.dateOfRegistration);
     let formattedDate = date.toLocaleDateString('en-US', {

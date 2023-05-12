@@ -1,6 +1,6 @@
+import '../styles/Article.css'
 import { useEffect, useState } from "react";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
-import '../styles/Article.css'
 import { ArticleTitle } from "../molecules/ArticleTitle";
 import { ArticleText } from "../molecules/ArticleText";
 import { ArticleInfo } from "../molecules/ArticleInfo";

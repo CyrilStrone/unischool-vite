@@ -6,6 +6,7 @@ interface IAnotherProfileStatistics {
     shockMode: string,
     totalPoints: string
 }
+
 export const AnotherProfileStatistics = (params: IAnotherProfileStatistics) => {
 
 

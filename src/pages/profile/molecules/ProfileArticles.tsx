@@ -1,10 +1,11 @@
+import "../styles/ProfileArticles.css"
 import { useStore } from "effector-react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { $accessToken } from "../../../common/accessToken";
 import { apiImage } from "../../../common/axiosInstance";
 import { InProfileArticles } from "../logics/InProfileArticles";
-import "../styles/ProfileArticles.css"
+
 interface IProfileArticles {
     id: number,
 }

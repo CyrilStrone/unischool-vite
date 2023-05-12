@@ -1,7 +1,9 @@
 import { apiImage, axiosInstance } from "../../../common/axiosInstance"
+
 export interface IInAnotherProfile{
     id:number
 }
+
 export const InAnotherProfile = async (params:IInAnotherProfile) => {
     return axiosInstance.get(
         `/user/${params.id}`)

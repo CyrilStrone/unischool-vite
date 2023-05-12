@@ -1,9 +1,9 @@
+import "../styles/CardMemory.css"
 import { useEffect, useState } from "react";
 import MemoryGame from "react-card-memory-game";
 import { setLevel } from "../../../common/UserHooks";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { GamesFinal } from "../molecules/GamesFinal";
-import "../styles/CardMemory.css"
 
 export const CardMemory = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -24,7 +24,6 @@ export const CardMemory = () => {
         };
         getCurrentTime();
         setInterval(getCurrentTime, 1000);
-
     };
     useEffect(() => {
         if (currentQuestionIndex !== 0) {
@@ -44,7 +43,7 @@ export const CardMemory = () => {
             <div className="CardMemory">
                 {
                     stop ?
-                        <GamesFinal id={3} total={currentQuestionIndex * 5} time={finalTime} />
+                        <GamesFinal id={2} total={currentQuestionIndex * 5} time={finalTime} />
                         :
                         <>
                             <div className="CardMemory__Time">

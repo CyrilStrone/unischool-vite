@@ -1,4 +1,5 @@
 import { axiosInstance } from "../../../common/axiosInstance"
+import { setCustomValidityShow } from "../../customValidity/organoids/CustomValidity"
 
 
 export const InHeaderUser = async () => {
@@ -6,6 +7,6 @@ export const InHeaderUser = async () => {
         `/profile/avatar`)
         .then((res: any) => { return (res.data.avatar) })
         .catch(() => {
-            console.log("InHeaderUser error")
+            setCustomValidityShow("Ошибка сервера")
         })
 }

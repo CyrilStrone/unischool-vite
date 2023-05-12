@@ -7,6 +7,7 @@ export interface IInArticleWriting {
     content: any
     navigate: any
 }
+
 export const InArticleWriting = async (params: IInArticleWriting) => {
     const formData = new FormData();
     formData.append("title", params.title);
@@ -15,8 +16,10 @@ export const InArticleWriting = async (params: IInArticleWriting) => {
     formData.append('content', JSON.stringify(params.content));
     return axiosInstance.post(
         '/post', formData)
-        .then((res: any) => { params.navigate(`/Article/:${res.data.id}`)})
-        .catch(() => {
-            console.log("InArticleWriting error")
+        .then((res: any) => {
+            params.navigate(`/Article/:${res.data.id}`);
+        })
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

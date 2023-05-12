@@ -6,20 +6,33 @@ import { AnotherProfileArticles } from "../molecules/AnotherProfileArticles";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { useEffect, useState } from "react";
 import { IInAnotherProfile, InAnotherProfile } from "../logics/InAnotherProfile";
+import { $user } from '../../../common/UserHooks';
+import { useStore } from 'effector-react';
+import { useNavigate } from 'react-router-dom';
+
 export const AnotherProfile = () => {
     const [id, setId] = useState<any>()
+    const navigate = useNavigate();
+    const user = useStore($user);
     const [value, setValue] = useState<any>()
-    const requestInAnotherProfile = async (params:IInAnotherProfile) => {
-        setValue(await InAnotherProfile({...params}))
+    const requestInAnotherProfile = async (params: IInAnotherProfile) => {
+        setValue(await InAnotherProfile({ ...params }))
     }
     useEffect(() => {
         if (id) {
-            requestInAnotherProfile({id:id})
+            if (user.id && user.id == id) {
+                navigate("/Profile")
+            } else {
+                requestInAnotherProfile({ id: id })
+            }
         }
     }, [id])
     useEffect(() => {
         setId(window.location.pathname.split("/AnotherProfile/:")[1])
     }, [])
+    useEffect(() => {
+        console.log(user)
+    }, [user])
     return (
         <>
             {value &&

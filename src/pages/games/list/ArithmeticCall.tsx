@@ -1,40 +1,63 @@
+import "../styles/ArithmeticCall.css"
 import { useEffect, useState } from "react";
 import { setLevel } from "../../../common/UserHooks";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { GamesFinal } from "../molecules/GamesFinal";
-import "../styles/ArithmeticCall.css"
-interface IQuestion  {
-    question: string
-    answers: number[]
-    answer: number
+
+interface IQuestion {
+    question: string;
+    answers: number[];
+    answer: number;
+}
+
+const generateQuestions = (): IQuestion[] => {
+    const generatedQuestions: IQuestion[] = [];
+
+    for (let i = 1; i <= 5; i++) {
+        const firstNumber = Math.floor(Math.random() * 10);
+        const secondNumber = Math.floor(Math.random() * 10);
+        const answer = firstNumber + secondNumber;
+
+        const question: IQuestion = {
+            question: `${firstNumber}+${secondNumber}`,
+            answers: generateRandomAnswers(answer),
+            answer: answer,
+        };
+
+        generatedQuestions.push(question);
+    }
+
+    return generatedQuestions;
 };
-export const ArithmeticCall = () => {
-    const [questions, setQuestions] = useState<IQuestion[]>([
-        {
-            question: "1+4",
-            answers: [5, 6, 2, 10],
-            answer: 5,
-        },
-        {
-            question: "3+4",
-            answers: [5, 6, 7, 10],
-            answer: 7,
-        },
-        {
-            question: "1+7",
-            answers: [5, 6, 2, 8],
-            answer: 8,
-        },
-        {
-            question: "6+4",
-            answers: [5, 6, 2, 10],
-            answer: 10,
-        }, {
-            question: "6+6",
-            answers: [12, 6, 2, 10],
-            answer: 12,
+
+const generateRandomAnswers = (correctAnswer: number): number[] => {
+    const answers: number[] = [];
+    answers.push(correctAnswer);
+
+    while (answers.length < 4) {
+        const randomAnswer = Math.floor(Math.random() * 20);
+
+        if (!answers.includes(randomAnswer)) {
+            answers.push(randomAnswer);
         }
-    ]);
+    }
+
+    return shuffleArray(answers);
+};
+
+const shuffleArray = (array: any[]): any[] => {
+    const shuffledArray = [...array];
+
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+
+    return shuffledArray;
+};
+
+export const ArithmeticCall = () => {
+    const [questions, setQuestions] = useState<IQuestion[]>(generateQuestions());
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
     const [score, setScore] = useState(0);

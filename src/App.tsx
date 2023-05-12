@@ -25,28 +25,13 @@ import { InProfile } from './pages/profile/logics/InProfile';
 import { $user } from './common/UserHooks';
 import { ArithmeticScale } from './pages/games/list/ArithmeticScale';
 
-export  const requestInProfile = async () => {
-  try {
-    let result = await InProfile();
-    if (result) {
-      return result
-    }
-  } catch {
-    return ({firstName:"Ванька",lastName:"1"})
-  }
-}
-
 function App() {
   const accessToken = useStore($accessToken);
-  const user = useStore($user);
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       setAccessToken(localStorage.getItem(accessTokenName) || "")
     }
   }, [])
-  useEffect(()=>{
-    console.log("user",user)
-  },[user])
   return (
     <div className="App">
       <Header />

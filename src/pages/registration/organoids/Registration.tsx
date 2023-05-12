@@ -1,9 +1,10 @@
-import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/Registration.css"
-import Man from "../../../common/assets/registration/Man.png"
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IInRegistration, InRegistration } from "../logics/InRegistration";
 import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity";
+import Man from "../../../common/assets/registration/Man.png"
+
 export const Registration = () => {
     const navigate = useNavigate();
 

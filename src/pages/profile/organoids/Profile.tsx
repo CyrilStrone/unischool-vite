@@ -1,11 +1,12 @@
+import '../styles/Profile.css'
 import { ProfileAchievements } from "../molecules/ProfileAchievements";
 import { ProfileGeneralInfo } from "../molecules/ProfileGeneralInfo";
 import { ProfileStatistics } from "../molecules/ProfileStatistics";
 import { ProfileArticles } from "../molecules/ProfileArticles";
-import '../styles/Profile.css'
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { useEffect, useState } from "react";
 import { InProfile } from "../logics/InProfile";
+
 export const Profile = () => {
     const [value, setValue] = useState<any>()
     const requestInProfile = async () => {

@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
 import '../styles/ArticleInfo.css'
-import Defaultuser from '../../../common/assets/article/defaultUser.png'
-import DisLike from '../../../common/assets/article/like.svg'
-import Like from '../../../common/assets/article/dislike.svg'
-import Comm from '../../../common/assets/article/comm.svg'
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IInArcticleLike, InArcticleLike } from '../logics/InArcticleLike'
 import { apiImage } from '../../../common/axiosInstance';
 import { IInArcticleLikeCheck, InArcticleLikeCheck } from '../logics/InArcticleLikeCheck';
 import { useStore } from 'effector-react';
 import { $accessToken } from '../../../common/accessToken';
+import Defaultuser from '../../../common/assets/article/defaultUser.png'
+import DisLike from '../../../common/assets/article/like.svg'
+import Like from '../../../common/assets/article/dislike.svg'
+import Comm from '../../../common/assets/article/comm.svg'
+
 interface IArticleInfo {
     authorId: number
     firstName: string
@@ -20,6 +21,7 @@ interface IArticleInfo {
     postId: number
     requestInArcticle: any
 }
+
 export const ArticleInfo = (params: IArticleInfo) => {
     const [check, setCheck] = useState<boolean>(false)
     const accessToken = useStore($accessToken);

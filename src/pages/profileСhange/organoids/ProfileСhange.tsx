@@ -7,8 +7,11 @@ import { InProfileСhangeAvatar } from '../logics/InProfileСhangeAvatar';
 import { InProfileСhange } from '../logics/InProfileСhange';
 import { BackButton } from '../../../ui/backbutton/organoids/BackButton';
 import { setCustomValidityShow } from '../../../ui/customValidity/organoids/CustomValidity';
+import defaultBack from '../../../common/assets/articleWriting/back.png'
+
 export const ProfileСhange = () => {
     const [value, setValue] = useState<any>()
+    const [valueAvatar, setValueAvatar] = useState<any>("")
     const [valuecheck, setValuecheck] = useState<any>()
     const requestInProfile = async () => {
         setValue(await InProfile())
@@ -16,10 +19,12 @@ export const ProfileСhange = () => {
     }
     const requestInProfileСhange = async () => {
         try {
-            if (valuecheck.firstName !== value.firstName || valuecheck.lastName !== value.lastName || valuecheck.about !== value.about){
+            if (valuecheck.firstName !== value.firstName || valuecheck.lastName !== value.lastName || valuecheck.about !== value.about || value.avatar !== valuecheck.avatar) {
                 await InProfileСhange({ firstName: value.firstName, lastName: value.lastName, about: value.about })
-            }else{
+                setCustomValidityShow("Сохранено")
+            } else {
                 setCustomValidityShow("Нет изменений")
+
             }
         } catch (error) {
             setCustomValidityShow("Информация о пользователе не была изменена")
@@ -39,11 +44,18 @@ export const ProfileСhange = () => {
                 ...value,
                 avatar: event.target.files[0],
             });
+            setValueAvatar(URL.createObjectURL(event.target.files[0]))
         }
     };
     useEffect(() => {
         requestInProfile()
     }, [])
+    useEffect(() => {
+        if (value && value.avatar && !valueAvatar) {
+            setValueAvatar(typeof value.avatar == "string" ? value.avatar : URL.createObjectURL(value.avatar))
+        }
+    }, [value])
+
     return (
         <>{value &&
             <form onSubmit={e => { e.preventDefault(); requestInProfileСhange(); requestInProfileChangeAvatar(); }} className="ProfileСhange">
@@ -52,7 +64,8 @@ export const ProfileСhange = () => {
                     Редактировать профиль
                 </div>
                 <div className="ProfileСhange__image">
-                    <label htmlFor="file-input" style={{ backgroundImage: `url(${typeof value.avatar == "string" ? value.avatar : URL.createObjectURL(value.avatar)}` }} className="ProfileСhange__image__image" />
+                    {/* <label htmlFor="file-input" style={{ backgroundImage: `url(${typeof value.avatar == "string" ? value.avatar : URL.createObjectURL(value.avatar)}` }} className="ProfileСhange__image__image" /> */}
+                    <label htmlFor="file-input" style={{ backgroundImage: `url(${valueAvatar ? valueAvatar : defaultBack})` }} className="ProfileСhange__image__image" />
                     <input
                         id="file-input"
                         type="file"

@@ -1,6 +1,7 @@
-import { useStore } from "effector-react";
-import { $user } from "../../../common/UserHooks";
 import "../styles/GamesBarList.css"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { apiImage } from "../../../common/axiosInstance";
 
 interface IGamesBarList {
     id: number
@@ -8,8 +9,17 @@ interface IGamesBarList {
 }
 
 export const GamesBarList = (params: IGamesBarList) => {
+    const navigate = useNavigate();
+    const [place, setPlace] = useState()
+    useEffect(() => {
+        setPlace(
+            params.value && params.value.myPlace && params.value.myPlace.game && params.value.myPlace.game.map((e: any) =>
+                e.game_id == params.id ? e.MyPlace : null
+            )
+        )
+    }, [params.value])
     return (
-        <div className="GamesBarList GamesBar__Block">
+        params.value && <div className="GamesBarList GamesBar__Block">
             <div className="GamesBar__Title">
                 Список игроков
             </div>
@@ -19,7 +29,6 @@ export const GamesBarList = (params: IGamesBarList) => {
                         Место
                     </div>
                     <div>
-                        
                     </div>
                     <div>
                         Игрок
@@ -32,48 +41,46 @@ export const GamesBarList = (params: IGamesBarList) => {
                     </div>
                 </div>
                 <div className="GamesBarList__General__Footer" >
-                    {params.value.other.map((e: any, id: number) =>
-                        <div className={" GamesBarList__General__Footer__item" }>
+                    {params.value && params.value.rating && params.value.rating.map((e: any, id: number) =>
+                        <div className={"GamesBarList__General__Footer__item"}
+                        >
                             <div>
                                 {id + 1}
                             </div>
                             <div>
-                                <img src={e.image} alt="" />
+                                <img className="GamesBarList__General__Footer__item__image" src={apiImage + e.user.avatar} alt="" />
+                            </div>
+                            <div style={{ cursor: "pointer" }} onClick={() => { navigate(`/AnotherProfile/:${e.user.id}`) }}>
+                                {e.user.login}
                             </div>
                             <div>
-                                {e.name}
+                                {params.value.game.title}
                             </div>
                             <div>
-                                {params.id == 1 ? "Арифметический вызов" : params.id == 2 ? "Поиск карты" : "Вспомнить все"}
-                            </div>
-                            <div>
-                                {e.total}
+                                {e.bestScore}
                             </div>
                         </div>
                     )}
                 </div>
             </div>
-            <div className="GamesBarList__General__User">
-                {params.value.other.map((e: any, id: number) =>
-                    id == 2 && <>
-                        <div>
-                            {id + 1}
-                        </div>
-                        <div>
-                            <img src={e.image} alt="" />
-                        </div>
-                        <div>
-                            {e.name}
-                        </div>
-                        <div>
-                            {params.id == 1 ? "Арифметический вызов" : params.id == 2 ? "Поиск карты" : "Вспомнить все"}
-                        </div>
-                        <div>
-                            {e.total}
-                        </div>
-                    </>
-                )}
-            </div>
+            {place && params.value.myScore && <div className="GamesBarList__General__User "
+                style={params.value.rating.length < 6 ? { marginRight: "40px" } : {}}>
+                <div>
+                    {place}
+                </div>
+                <div>
+                    <img className="GamesBarList__General__Footer__item__image" src={apiImage + params.value.myScore.user.avatar} alt="" />
+                </div>
+                <div onClick={() => { navigate(`/Profile`) }}>
+                    {params.value.myScore.user.login}
+                </div>
+                <div>
+                    {params.value.game.title}
+                </div>
+                <div>
+                    {params.value.myScore.bestScore}
+                </div>
+            </div>}
         </div>
     );
 };

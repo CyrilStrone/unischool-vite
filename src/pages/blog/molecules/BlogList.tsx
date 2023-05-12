@@ -3,6 +3,7 @@ import { BlogListItem } from "../atomes/BlogListItem";
 import { $blogValue, IBlogValue } from "../logics/BlogValue";
 import { useStore } from "effector-react";
 import { InBlogList } from "../logics/InBlogList";
+
 export const BlogList = () => {
     const blogValue = useStore($blogValue);
     const requestBlogList= async () => {

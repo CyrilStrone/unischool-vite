@@ -1,11 +1,13 @@
+import "../styles/AnotherProfileArticles.css"
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { apiImage } from "../../../common/axiosInstance";
 import { InAnotherProfileArticles } from "../logics/InAnotherProfileArticles";
-import "../styles/AnotherProfileArticles.css"
+
 interface IAnotherProfileArticles {
     id: number,
 }
+
 export const AnotherProfileArticles = (params: IAnotherProfileArticles) => {
     const [value, setValue] = useState<any>()
     const requestInAnotherProfile = async (id: number) => {

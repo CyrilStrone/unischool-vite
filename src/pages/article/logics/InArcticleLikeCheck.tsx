@@ -1,9 +1,11 @@
 import { axiosInstance } from "../../../common/axiosInstance"
+import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity"
 
 export interface IInArcticleLikeCheck {
     postId: number
     setCheck: any
 }
+
 export const InArcticleLikeCheck = async (params: IInArcticleLikeCheck) => {
     return axiosInstance.get(
         `/like/check/${params.postId}`)
@@ -15,6 +17,6 @@ export const InArcticleLikeCheck = async (params: IInArcticleLikeCheck) => {
             }
         })
         .catch(() => {
-            console.log("InArcticleLikeCheck error")
+            // setCustomValidityShow("Ошибка сервера")
         })
 }

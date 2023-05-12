@@ -22,6 +22,7 @@
   padding-left: 40px;
   height: 66px;
   padding-right: 46px;
+  gap: 10px;
 }
 .GamesBarList__General__Header div {
   display: flex;
@@ -32,7 +33,7 @@
   flex-direction: column;
   gap: 15px;
   max-height: 460px;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-right: 20px;
   overflow-x: hidden;
 }
@@ -44,12 +45,14 @@
   border-radius: 46px;
   padding-left: 40px;
   min-height: 66px;
+  gap: 10px;
 }
 .GamesBarList__General__Footer__item div {
   display: flex;
   align-items: center;
 }
 .GamesBarList__General__User {
+  gap: 10px;
   width: -webkit-fill-available;
   background: #ffffff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.46);
@@ -76,6 +79,13 @@
 .GamesBarList__General__User div {
   display: flex;
   align-items: center;
+}
+.GamesBarList__General__Footer__item__image{
+  width: 44px;
+  height: 44px;
+    border-radius: 100%;
+    object-fit: cover;
+    background-color: #ffffff;
 }
 .GamesBarList__General__Footer::-webkit-scrollbar {
   width: 22px;

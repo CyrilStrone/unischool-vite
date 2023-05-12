@@ -23,3 +23,5 @@ axiosInstance.interceptors.response.use(
 
 
 export const apiImage = "http://26.74.162.51:3000/image/"
+
+export const api = "http://26.74.162.51:3000/"

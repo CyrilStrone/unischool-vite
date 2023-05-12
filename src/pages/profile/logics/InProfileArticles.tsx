@@ -1,4 +1,5 @@
 import { apiImage, axiosInstance } from "../../../common/axiosInstance"
+import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity"
 
 interface IInProfileArticles{
     id:number
@@ -9,6 +10,6 @@ export const InProfileArticles = async (params:IInProfileArticles) => {
         .then((res: any) => { 
             return (res.data) })
         .catch(() => {
-            console.log("InProfileArticles error")
+            setCustomValidityShow("Ошибка сервера")
         })
 }

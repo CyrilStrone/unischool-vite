@@ -12,9 +12,7 @@ export const Header = () => {
     const location = useLocation();
     const searchValue = useStore($searchValue);
     const level = useStore($level);
-    useEffect(() => {
-        console.log((level.index/level.end) * 183)
-    }, [level])
+
     return (
         <div className="Header">
             <div className="Header__Actual">

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import { setAccessToken } from "../../../common/accessToken"
 import { axiosInstance } from "../../../common/axiosInstance"
 
@@ -7,6 +6,7 @@ export interface IInAuthorization {
     password: string
     navigate: any
 }
+
 export const InAuthorization = async (params: IInAuthorization) => {
     return axiosInstance.post(
         '/auth/login', {

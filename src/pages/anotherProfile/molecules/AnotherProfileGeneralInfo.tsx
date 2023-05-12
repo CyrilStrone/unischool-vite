@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import "../styles/AnotherProfileGeneralInfo.css"
+
 interface IAnotherProfileGeneralInfo {
     image: string,
     login: string,
@@ -9,6 +9,7 @@ interface IAnotherProfileGeneralInfo {
     about: string,
     id: number
 }
+
 export const AnotherProfileGeneralInfo = (params: IAnotherProfileGeneralInfo) => {
     let date = new Date(params.dateOfRegistration);
     let formattedDate = date.toLocaleDateString('en-US', {

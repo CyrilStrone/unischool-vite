@@ -35,7 +35,7 @@
   height: 60px;
   padding-left: 61px;
   padding-right: 61px;
-  background: #8459FF;
+  background: #8459ff;
   border-radius: 30px;
   font-weight: 700;
   font-size: 18px;
@@ -44,4 +44,6 @@
   user-select: none;
   color: #ffffff;
   cursor: pointer;
+  border: none;
+  outline: none;
 }

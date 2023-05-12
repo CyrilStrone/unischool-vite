@@ -1,8 +1,8 @@
+import "../styles/ArithmeticScale.css"
 import { useEffect, useState } from "react";
 import { setLevel } from "../../../common/UserHooks";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { GamesFinal } from "../molecules/GamesFinal";
-import "../styles/ArithmeticScale.css"
 
 export const ArithmeticScale = () => {
     const [label, setLabel] = useState<boolean>(true);
@@ -122,7 +122,7 @@ export const ArithmeticScale = () => {
         <>
             <div className="ArithmeticScale">
                 {stop ?
-                    <GamesFinal id={2} total={score} time={finalTime} /> :
+                    <GamesFinal id={3} total={score} time={finalTime} /> :
                     <>
                         <div className="ArithmeticScale__Time">
                             {time}

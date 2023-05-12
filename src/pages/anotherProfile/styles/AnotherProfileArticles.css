@@ -47,6 +47,8 @@
     font-size: 20px;
     line-height: 36px;
     color: #000000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .AnotherProfileArticles__Item__Info__description{
     font-family: "DM Sans", sans-serif;

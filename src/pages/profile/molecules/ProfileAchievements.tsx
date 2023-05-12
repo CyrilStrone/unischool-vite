@@ -1,7 +1,9 @@
 import "../styles/ProfileAchievements.css"
+
 interface IProfileAchievements {
     id: number,
 }
+
 export const ProfileAchievements = (params:IProfileAchievements) => {
     return (
         <div className="ProfileAchievements">
