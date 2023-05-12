@@ -30,9 +30,6 @@ export const AnotherProfile = () => {
     useEffect(() => {
         setId(window.location.pathname.split("/AnotherProfile/:")[1])
     }, [])
-    useEffect(() => {
-        console.log(user)
-    }, [user])
     return (
         <>
             {value &&

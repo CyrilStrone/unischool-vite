@@ -1,6 +1,6 @@
-import "../styles/CardMemory.css"
 import { useEffect, useState } from "react";
 import MemoryGame from "react-card-memory-game";
+import "../styles/CardMemory.css"
 import { setLevel } from "../../../common/UserHooks";
 import { CircleBackground } from "../../../ui/circlebackground/organoids/CircleBackground";
 import { GamesFinal } from "../molecules/GamesFinal";

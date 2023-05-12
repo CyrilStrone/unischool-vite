@@ -14,7 +14,7 @@ export const GamesList = (params: IGameList) => {
             </div>
             <div className="GamesList__Bar">
                 {params.value && params.value.games && params.value.games.length !== 0 && params.value.games.map((e: any, id: number) =>
-                    <div className="GamesList__Bar__Item">
+                    <div key={id} className="GamesList__Bar__Item">
                         <img className="GamesList__Bar__Item__Image" src={apiImage + e.image} alt={e.title} />
                         <div className="GamesList__Bar__Item__Block">
                             <div className="GamesList__Bar__Item__Block__Title">

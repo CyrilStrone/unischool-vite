@@ -36,7 +36,7 @@ export const GamesBarInfo = (params: IGamesBarInfo) => {
                     <div className="GamesBarInfo__ContinueAndList__Top__List">
                         {params.value.rating && params.value.rating.map((e: any, id: number) =>
                             id < 3 &&
-                            <div className="GamesBarInfo__ContinueAndList__Top__List__Item">
+                            <div key={id} className="GamesBarInfo__ContinueAndList__Top__List__Item">
                                 <div className="GamesBarInfo__ContinueAndList__Top__List__Item__Id">
                                     {id + 1}
                                 </div>

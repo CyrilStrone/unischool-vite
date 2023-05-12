@@ -42,7 +42,7 @@ export const GamesBarList = (params: IGamesBarList) => {
                 </div>
                 <div className="GamesBarList__General__Footer" >
                     {params.value && params.value.rating && params.value.rating.map((e: any, id: number) =>
-                        <div className={"GamesBarList__General__Footer__item"}
+                        <div key={id} className={"GamesBarList__General__Footer__item"}
                         >
                             <div>
                                 {id + 1}

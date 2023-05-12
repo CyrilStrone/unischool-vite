@@ -129,11 +129,11 @@ export const ArithmeticScale = () => {
                         </div>
                         <div className="ArithmeticScale__Label" >{label ? "Вверх" : "Вниз"}</div>
                         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                            {numbers.map((number: any) => (
+                            {numbers.map((number: any,id:any) => (
                                 <div
                                     className="ArithmeticScale__Number"
                                     style={{ left: `${number.left}px`, top: `${number.top}px`, display: `flex` }}
-                                    key={number.value}
+                                    key={id}
                                     onClick={() => handleNumberSelection(number.value)}
                                 >{number.value}</div>
                             ))}
