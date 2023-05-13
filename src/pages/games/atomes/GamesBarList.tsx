@@ -12,12 +12,17 @@ export const GamesBarList = (params: IGamesBarList) => {
     const navigate = useNavigate();
     const [place, setPlace] = useState()
     useEffect(() => {
-        setPlace(
-            params.value && params.value.myPlace && params.value.myPlace.game && params.value.myPlace.game.map((e: any) =>
-                e.game_id == params.id ? e.MyPlace : null
-            )
-        )
+        if (params.value && params.value.rating) {
+            params.value.rating.map((e: any, id: any) => {
+                if (e.user.id == params.value.myScore.user.id) {
+                    setPlace(id + 1)
+                }
+            })
+        }
     }, [params.value])
+    useEffect(() => {
+        console.log(place)
+    }, [place])
     return (
         params.value && <div className="GamesBarList GamesBar__Block">
             <div className="GamesBar__Title">

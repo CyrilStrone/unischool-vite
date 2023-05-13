@@ -10,7 +10,6 @@ export interface IGamesContinue {
 export const GamesContinue = (params: IGamesContinue) => {
     const [lastVisitId, setLastVisitId] = useState<any>()
     const [value, setValue] = useState<any>()
-    const [id, setId] = useState<any>()
     useEffect(() => {
         if (params.value && params.value.myScore && params.value.myScore && params.value.myScore[0]) {
             setLastVisitId(params.value.myScore[0].game.id)
@@ -21,7 +20,6 @@ export const GamesContinue = (params: IGamesContinue) => {
             params.value && params.value.games.map((e: any, id: any) => {
                 if (e.id == lastVisitId) {
                     setValue(e)
-                    setId(id)
                 }
             })
     }, [lastVisitId])
@@ -39,11 +37,11 @@ export const GamesContinue = (params: IGamesContinue) => {
                     </div>
                     <div className="GamesContinue__Block__Info__Footer">
                         <NavLink className="GamesContinue__Block__Info__Footer__Link" to={`/Games/Bar/${value.name}`}>Играть</NavLink>
-                        {params.value.best.game[id] && <div className="GamesContinue__Block__Info__Footer__Top">
-                            Вы лучше: {params.value.best.game[id].result.toFixed(0)}% игроков
-                        </div>}
+                        {params.value.best && params.value.best.map((a: any) =>
+                            a.game_id == value.id && <div className="GamesContinue__Block__Info__Footer__Top" >Вы лучше: {a.best.toFixed(0)}% игроков</div>
+                        )
+                        }
                     </div>
-
                 </div>
             </div>
         </div>

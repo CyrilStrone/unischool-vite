@@ -25,7 +25,10 @@ export const GamesList = (params: IGameList) => {
                             </div>
                             <div className="GamesList__Bar__Item__Block__Footer">
                                 <NavLink className="GamesList__Bar__Item__Block__Footer__Link" to={`/Games/Bar/:${e.id}`}>Играть</NavLink>
-                                {params.value.best.game[id] && <div className="GamesList__Bar__Item__Block__Footer__Top" >Вы лучше: {params.value.best.game[id].result.toFixed(0)}% игроков</div>}
+                                {params.value.best &&  params.value.best.map((a: any) => 
+                                    a.game_id == e.id && <div className="GamesList__Bar__Item__Block__Footer__Top" >Вы лучше: {a.best.toFixed(0)}% игроков</div>
+                                )
+                                }
                             </div>
                         </div>
                     </div>
