@@ -10,19 +10,16 @@ interface IGamesBarList {
 
 export const GamesBarList = (params: IGamesBarList) => {
     const navigate = useNavigate();
-    const [place, setPlace] = useState()
+    const [placeUser, setPlace] = useState<any>()
     useEffect(() => {
-        if (params.value && params.value.rating) {
-            params.value.rating.map((e: any, id: any) => {
-                if (e.user.id == params.value.myScore.user.id) {
-                    setPlace(id + 1)
+        if (params.value && params.value.best) {
+            params.value.best.map((e: any, id: any) => {
+                if (e.game_id && e.game_id == params.value.game.id) {
+                    setPlace(e.place)
                 }
             })
         }
     }, [params.value])
-    useEffect(() => {
-        console.log(place)
-    }, [place])
     return (
         params.value && <div className="GamesBarList GamesBar__Block">
             <div className="GamesBar__Title">
@@ -68,24 +65,26 @@ export const GamesBarList = (params: IGamesBarList) => {
                     )}
                 </div>
             </div>
-            {place && params.value.myScore && <div className="GamesBarList__General__User "
-                style={params.value.rating.length < 6 ? { marginRight: "40px" } : {}}>
-                <div>
-                    {place}
+            {placeUser && placeUser !== 0 &&
+                <div className="GamesBarList__General__User" style={params.value.rating.length < 6 ? { marginRight: "40px" } : {}}>
+                    <div>
+                        {placeUser}
+                    </div>
+                    <div>
+                        <img className="GamesBarList__General__Footer__item__image" src={apiImage + params.value.myScore.user.avatar} alt="" />
+                    </div>
+                    <div onClick={() => { navigate(`/Profile`) }}>
+                        {params.value.myScore.user.login}
+                    </div>
+                    <div>
+                        {params.value.game.title}
+                    </div>
+                    <div>
+                        {params.value.myScore.bestScore}
+                    </div>
                 </div>
-                <div>
-                    <img className="GamesBarList__General__Footer__item__image" src={apiImage + params.value.myScore.user.avatar} alt="" />
-                </div>
-                <div onClick={() => { navigate(`/Profile`) }}>
-                    {params.value.myScore.user.login}
-                </div>
-                <div>
-                    {params.value.game.title}
-                </div>
-                <div>
-                    {params.value.myScore.bestScore}
-                </div>
-            </div>}
+            }
+
         </div>
     );
 };

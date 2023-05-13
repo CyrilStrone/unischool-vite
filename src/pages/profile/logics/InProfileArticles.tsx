@@ -10,6 +10,6 @@ export const InProfileArticles = async (params:IInProfileArticles) => {
         .then((res: any) => { 
             return (res.data) })
         .catch(() => {
-            setCustomValidityShow("Ошибка сервера")
+            // setCustomValidityShow("Ошибка сервера")
         })
 }
