@@ -4,10 +4,8 @@ import { BackButton } from "../../../ui/backbutton/organoids/BackButton";
 import { apiImage } from "../../../common/axiosInstance";
 
 interface IGamesBarInfo {
-    id: number
     value: any
 }
-
 export const GamesBarInfo = (params: IGamesBarInfo) => {
     const navigate = useNavigate();
     return (

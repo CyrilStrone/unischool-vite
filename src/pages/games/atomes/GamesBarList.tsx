@@ -4,22 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { apiImage } from "../../../common/axiosInstance";
 
 interface IGamesBarList {
-    id: number
-    value: any
+    value?: any
+    placeUser?:any
 }
-
+//Список всех игр
 export const GamesBarList = (params: IGamesBarList) => {
     const navigate = useNavigate();
-    const [placeUser, setPlace] = useState<any>()
-    useEffect(() => {
-        if (params.value && params.value.best) {
-            params.value.best.map((e: any, id: any) => {
-                if (e.game_id && e.game_id == params.value.game.id) {
-                    setPlace(e.place)
-                }
-            })
-        }
-    }, [params.value])
+
     return (
         params.value && <div className="GamesBarList GamesBar__Block">
             <div className="GamesBar__Title">
@@ -65,10 +56,10 @@ export const GamesBarList = (params: IGamesBarList) => {
                     )}
                 </div>
             </div>
-            {placeUser && placeUser !== 0 &&
+            {params.placeUser && params.placeUser !== 0 &&
                 <div className="GamesBarList__General__User" style={params.value.rating.length < 6 ? { marginRight: "40px" } : {}}>
                     <div>
-                        {placeUser}
+                        {params.placeUser}
                     </div>
                     <div>
                         <img className="GamesBarList__General__Footer__item__image" src={apiImage + params.value.myScore.user.avatar} alt="" />

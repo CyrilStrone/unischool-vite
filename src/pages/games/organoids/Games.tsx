@@ -5,7 +5,7 @@ import { GamesContinue, IGamesContinue } from "../molecules/GamesContinue";
 import { GamesList } from "../molecules/GamesList";
 import { InGamesList } from "../logics/InGamesList";
 import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity";
-
+//Список всех игр и последняя игра
 export const Games = () => {
     const [value, setValue] = useState<any>([])
     useEffect(() => {

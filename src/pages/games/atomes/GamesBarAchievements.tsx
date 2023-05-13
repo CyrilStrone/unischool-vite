@@ -6,21 +6,13 @@ import Best from '../../../common/assets/profile/Best.png'
 import { useEffect, useState } from "react";
 
 interface IGamesBarAchievements {
-    value: any
+    value?: any
+    scoreGeneralUser?: any
+    placeUser?: any
+    percentUser?: any
 }
 
 export const GamesBarAchievements = (params: IGamesBarAchievements) => {
-    const [value, setValue] = useState<any>();
-
-    useEffect(() => {
-        let sum = 0;
-        if (params.value && params.value.myScore && params.value.myScore.score)
-            for (let i = 0; i < params.value.myScore.score.length; i++) {
-                sum += params.value.myScore.score[i];
-            }
-        setValue({ ...value, sum: sum })
-    }, [params.value])
-
     return (
         params.value && <div className="GamesBarAchievements GamesBar__Block">
             <div className="GamesBar__Title">
@@ -34,7 +26,7 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Ударный режим
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            0 дней
+                            {(params.value.myScore && params.value.myScore.inARow) ? params.value.myScore.inARow : 0} дней
                         </div>
                     </div>
                 </div>
@@ -45,7 +37,7 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Всего очков
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            {value && value.sum && value.sum} очков
+                            {(params.scoreGeneralUser && params.scoreGeneralUser.sum) ? params.scoreGeneralUser.sum : 0} очков
                         </div>
                     </div>
                 </div>
@@ -56,7 +48,7 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Ваш уровень
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            5 уровень
+                            {(params.value.myScore && params.value.myScore.bestScore) ? 5 : 0} уровень
                         </div>
                     </div>
                 </div>
@@ -67,8 +59,7 @@ export const GamesBarAchievements = (params: IGamesBarAchievements) => {
                             Вы лучше
                         </div>
                         <div className="GamesBarAchievements__List__Item__Info__Total">
-                            {/* {params.value.myScore.totalPoints}% игроков */}
-                            0
+                            {params.percentUser ? params.percentUser : 0}% игроков
                         </div>
                     </div>
                 </div>

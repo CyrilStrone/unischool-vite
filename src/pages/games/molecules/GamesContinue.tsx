@@ -24,7 +24,7 @@ export const GamesContinue = (params: IGamesContinue) => {
             })
     }, [lastVisitId])
     return (
-        params.value && value && <div className="GamesContinue">
+        value && <div className="GamesContinue">
             <div className="GamesContinue__Title">Продолжить тренировку</div>
             <div className="GamesContinue__Block">
                 <img className="GamesContinue__Block__Image" src={apiImage + value.image} alt={value.title} />
@@ -38,7 +38,7 @@ export const GamesContinue = (params: IGamesContinue) => {
                     <div className="GamesContinue__Block__Info__Footer">
                         <NavLink className="GamesContinue__Block__Info__Footer__Link" to={`/Games/Bar/${value.name}`}>Играть</NavLink>
                         {params.value.best && params.value.best.map((a: any) =>
-                            a.game_id == value.id && <div className="GamesContinue__Block__Info__Footer__Top" >Вы лучше: {a.best.toFixed(0)}% игроков</div>
+                            a.game_id == value.id && <div className="GamesContinue__Block__Info__Footer__Top" >Вы лучше: {a.best == 100 ? 0 : a.best.toFixed(0)}% игроков</div>
                         )
                         }
                     </div>
