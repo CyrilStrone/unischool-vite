@@ -124,7 +124,7 @@ export const ArticleWriting = () => {
                 <div className="ArticleWriting__Button" onClick={() => { handleAddContent() }}>
                     Добавить заголовок
                 </div>
-                <input className="ArticleWriting__Button" type="submit" value="Завершить"  onClick={onCLickButton}>
+                <input className="ArticleWriting__Button" type="submit" value="Завершить" >
                 </input>
             </div>
         </form>
