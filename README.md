@@ -4,9 +4,13 @@
 
 UniSchool - учебная платформа с элементами геймификации
 
-## Available Scripts
+# ⌨️ Usage
 
-### `npm i`
+1. install dependencies with:  
+`npm i`
 
-### `npm dev`
+1. run in development mode (watch changes in the files and refresh your browser automatically):  
+`npm run dev`
 
+1. would like to publish the project as a website? Then make a distribution build by generating static files:  
+`npm run build` 
